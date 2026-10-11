@@ -1,0 +1,57 @@
+.service-row {
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  scrollbar-width: none;
+  -webkit-overflow-scrolling: touch;
+}
+
+.service-row::-webkit-scrollbar {
+  display: none;
+}
+
+.service-row-track {
+  display: flex;
+  gap: clamp(16px, 2vw, 28px);
+  padding-inline: var(--pad);
+  width: max-content;
+}
+
+.service-row .card {
+  flex: 0 0 clamp(264px, 31vw, 410px);
+  scroll-snap-align: center;
+}
+
+.service-row-foot {
+  display: flex;
+  align-items: center;
+  gap: 24px;
+  margin: clamp(20px, 3vw, 36px) var(--pad) 0;
+}
+
+.row-bar {
+  flex: 1;
+  height: 6px;
+  background: rgba(15, 15, 14, 0.18);
+  border-radius: 6px;
+  overflow: hidden;
+}
+
+.row-bar i {
+  display: block;
+  height: 100%;
+  background: var(--midnight);
+  transform-origin: 0 50%;
+  transform: scaleX(0.1);
+  border-radius: 6px;
+}
+
+.ctrls {
+  display: flex;
+  gap: 10px;
+}
+
+@media (max-width: 560px) {
+  .service-row .card {
+    flex-basis: 78vw;
+  }
+}

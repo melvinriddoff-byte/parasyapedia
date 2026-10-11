@@ -1,0 +1,29 @@
+.not-found {
+  min-height: 100vh;
+  min-height: 100svh;
+  display: grid;
+  place-items: center;
+  padding: calc(120px + var(--safe-t)) var(--pad) 80px;
+}
+
+.not-found-in {
+  max-width: 900px;
+}
+
+.not-found h1 {
+  font-family: var(--f-head);
+  font-weight: 800;
+  font-size: clamp(2.6rem, 8vw, 6.4rem);
+  line-height: 0.96;
+  letter-spacing: -0.04em;
+  margin: 18px 0 24px;
+}
+
+.not-found h1 .serif {
+  color: var(--ember);
+}
+
+.not-found .lede {
+  color: color-mix(in srgb, var(--ink) 78%, transparent);
+  margin-bottom: 28px;
+}

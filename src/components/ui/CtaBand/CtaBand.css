@@ -1,0 +1,30 @@
+.cta {
+  padding: clamp(64px, 9vw, 130px) var(--pad);
+  overflow: hidden;
+  position: relative;
+}
+
+.cta-in {
+  max-width: 1440px;
+  margin-inline: auto;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: end;
+  justify-content: space-between;
+  gap: 28px 48px;
+}
+
+.cta .h2 {
+  font-size: clamp(2.4rem, 7vw, 6.4rem);
+  max-width: 10em;
+}
+
+.cta-star {
+  position: absolute;
+  right: calc(var(--pad) + 2%);
+  top: clamp(20px, 4vw, 50px);
+  width: clamp(54px, 9vw, 120px);
+  height: clamp(54px, 9vw, 120px);
+  color: var(--ink);
+  animation: spin 14s linear infinite;
+}

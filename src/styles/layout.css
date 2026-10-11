@@ -1,0 +1,83 @@
+/* Section colours (rotate Midnight, Parchment, Saffron, Ember, Sand) and shared layout helpers. */
+.s-dark {
+  background: var(--midnight);
+  color: var(--parchment);
+}
+
+.s-soft {
+  background: var(--stone-soft);
+  color: var(--ink);
+}
+
+.s-light {
+  background: var(--parchment);
+  color: var(--ink);
+}
+
+.s-saffron {
+  background: var(--saffron);
+  color: var(--ink);
+}
+
+.s-ember {
+  background: var(--ember);
+  color: var(--ink);
+}
+
+.s-sand {
+  background: var(--sand);
+  color: var(--ink);
+}
+
+section {
+  position: relative;
+}
+
+.wrap {
+  width: 100%;
+  max-width: 1440px;
+  margin-inline: auto;
+  padding-inline: var(--pad);
+}
+
+.sec {
+  padding-block: clamp(72px, 11vw, 150px);
+}
+
+/* heading row with text or buttons at the right */
+.head-row {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: end;
+  justify-content: space-between;
+  gap: 16px 40px;
+  margin-bottom: clamp(26px, 4vw, 48px);
+}
+
+.head-row p {
+  max-width: 28em;
+  margin: 0;
+}
+
+/* sticky heading on the left, content on the right */
+.two-col {
+  display: grid;
+  grid-template-columns: 0.8fr 1.2fr;
+  gap: clamp(24px, 6vw, 100px);
+}
+
+.two-col .sticky {
+  position: sticky;
+  top: calc(110px + var(--safe-t));
+  align-self: start;
+}
+
+@media (max-width: 900px) {
+  .two-col {
+    grid-template-columns: 1fr;
+  }
+
+  .two-col .sticky {
+    position: static;
+  }
+}

@@ -1,0 +1,21 @@
+/* Brand Identity 2026: colours, type families and spacing tokens. */
+:root {
+  --ember: #ff5826; /* Brand */
+  --saffron: #ffb224; /* Sun */
+  --midnight: #0f0f0e; /* Text, dark background */
+  --ink: #0f0f0e; /* Text */
+  --sand: #d9d2c5; /* Stone */
+  --parchment: #f6f2ea; /* Page */
+  --stone-soft: #e9e5da; /* panels on the page colour */
+  --black: #000;
+
+  --f-head: 'Outfit', system-ui, 'Helvetica Neue', Arial, sans-serif;
+  --f-body: 'Outfit', system-ui, -apple-system, 'Segoe UI', Roboto, Arial, sans-serif;
+  --f-serif: 'Instrument Serif', Georgia, 'Times New Roman', serif;
+  --f-ml: 'Anek Malayalam', 'Noto Sans Malayalam', system-ui, sans-serif;
+
+  --pad: clamp(20px, 5vw, 72px);
+  --ease: cubic-bezier(0.2, 0.8, 0.2, 1);
+  --safe-t: env(safe-area-inset-top, 0px);
+  --safe-b: env(safe-area-inset-bottom, 0px);
+}

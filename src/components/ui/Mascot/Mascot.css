@@ -1,0 +1,236 @@
+/* ---- the character ---- */
+.mascot-wrap {
+  --m: clamp(120px, 14vw, 190px);
+  position: absolute;
+  width: var(--m);
+  aspect-ratio: 1;
+  z-index: 4;
+  pointer-events: none;
+}
+
+.mascot-wrap[data-solo='off'] {
+  visibility: hidden;
+}
+
+.mascot-bob {
+  position: absolute;
+  inset: 0;
+  rotate: var(--tilt, 0deg);
+  animation: mascot-bob 3.8s ease-in-out infinite;
+}
+
+.mascot {
+  display: block;
+  width: 100%;
+  height: 100%;
+  padding: 0;
+  border: 0;
+  background: transparent;
+  appearance: none;
+  user-select: none;
+  pointer-events: auto;
+  -webkit-tap-highlight-color: transparent;
+  touch-action: manipulation;
+}
+
+.mascot-squash {
+  position: relative;
+  display: block;
+  width: 100%;
+  height: 100%;
+  transform-origin: 50% 78%;
+  clip-path: inset(-30% -30% 25% -30%);
+}
+
+.mascot-layer {
+  position: absolute;
+  inset: 0;
+  background-size: 300% 300%;
+  background-repeat: no-repeat;
+}
+
+/* flat midnight ellipse instead of a soft shadow */
+.mascot-shadow {
+  position: absolute;
+  left: 24%;
+  right: 24%;
+  bottom: 21%;
+  height: 9%;
+  border-radius: 50%;
+  background: var(--midnight);
+  z-index: 1;
+}
+
+@keyframes mascot-bob {
+  50% {
+    transform: translateY(-4%);
+  }
+}
+
+/* ---- speech pill ---- */
+.mascot-pill {
+  position: absolute;
+  left: 58%;
+  bottom: 92%;
+  z-index: 2;
+  padding: 0.5em 0.95em;
+  border-radius: 999px;
+  background: var(--saffron);
+  color: var(--midnight);
+  font-family: var(--f-head);
+  font-weight: 800;
+  font-size: 0.74rem;
+  letter-spacing: 0.02em;
+  white-space: nowrap;
+  animation: mascot-bob 3.8s ease-in-out infinite;
+  animation-delay: -1s;
+}
+
+.mascot-pill::after {
+  content: '';
+  position: absolute;
+  left: 18%;
+  top: 100%;
+  border: 6px solid transparent;
+  border-top-color: var(--saffron);
+  border-bottom: 0;
+}
+
+/* ---- flat hand (waves in contact) ---- */
+.mascot-hand {
+  position: absolute;
+  width: 24%;
+  height: 24%;
+  right: -10%;
+  top: 46%;
+  border-radius: 46% 46% 40% 40%;
+  background: var(--saffron);
+  border: 2px solid var(--midnight);
+  transform-origin: 20% 90%;
+  z-index: 1;
+}
+
+.mascot-contact .mascot-hand {
+  animation: mascot-wave 1.1s ease-in-out infinite;
+}
+
+@keyframes mascot-wave {
+  0%,
+  100% {
+    rotate: -18deg;
+  }
+
+  50% {
+    rotate: 26deg;
+  }
+}
+
+/* ---- placements (parents are position: relative) ---- */
+
+/* Home: steps out of the film card's bottom-left corner. It sits inside the tilting card. */
+.mascot-hero {
+  --tilt: -7deg;
+  --m: clamp(140px, 33%, 200px);
+  left: -13%;
+  bottom: -14%;
+  width: var(--m);
+  z-index: 5;
+}
+
+.mascot-hero .mascot-pill {
+  left: 58%;
+  bottom: 78%;
+}
+
+/* Services: peeks over the filter bar. The bottom is cropped at the bar's edge. */
+.mascot-peek {
+  --tilt: -4deg;
+  left: 46%;
+  top: calc(var(--m) * -0.58);
+  clip-path: inset(-20% -20% 22% -20%);
+}
+
+.mascot-peek .mascot-shadow {
+  left: 14%;
+  right: 14%;
+  bottom: 24%;
+  height: 6px;
+  border-radius: 99px;
+}
+
+/* About and Testimonials: sits on the animated art in the page header. */
+.mascot-art {
+  --tilt: 6deg;
+  --m: 58%;
+  right: -12%;
+  bottom: -16%;
+}
+
+.mascot-art .mascot-shadow {
+  background: var(--midnight);
+}
+
+/* Contact: waves beside the form. */
+.mascot-contact {
+  --m: clamp(130px, 14vw, 190px);
+  position: relative;
+  display: block;
+  margin-top: clamp(24px, 4vw, 48px);
+}
+
+.mascot-contact .mascot-pill {
+  left: 62%;
+  bottom: 88%;
+}
+
+/* Page transition: rides the top edge of the orange panel. */
+.mascot-transition {
+  --tilt: -5deg;
+  --m: clamp(150px, 20vw, 260px);
+  left: 50%;
+  top: calc(var(--m) * -0.74);
+  margin-left: calc(var(--m) / -2);
+}
+
+.mascot-transition .mascot-shadow {
+  display: none;
+}
+
+/* 404: lost, off frame. */
+.mascot-lost {
+  --tilt: -8deg;
+  --m: clamp(150px, 20vw, 260px);
+  position: relative;
+  display: block;
+  margin-top: clamp(8px, 2vw, 24px);
+}
+
+.mascot-lost .mascot-pill {
+  left: 66%;
+  bottom: 90%;
+}
+
+/* ---- one mascot, small screens: only the hero one stays ---- */
+@media (max-width: 700px) {
+  .mascot-wrap:not(.mascot-hero) {
+    display: none;
+  }
+
+  .mascot-hero {
+    --m: clamp(150px, 44vw, 190px);
+    left: -16%;
+    bottom: -20%;
+  }
+
+  .mascot-hero .mascot-pill {
+    font-size: 0.66rem;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .mascot-bob,
+  .mascot-pill,
+  .mascot-hand {
+    animation: none;
+  }
+}

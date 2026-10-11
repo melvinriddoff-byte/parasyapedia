@@ -1,0 +1,25 @@
+.shape {
+  position: absolute;
+  display: block;
+}
+
+/* motion helpers used by the artwork data */
+.fl {
+  animation: floaty 4.2s ease-in-out infinite;
+}
+
+.sp {
+  animation: spin 12s linear infinite;
+}
+
+.pu {
+  animation: pulse 3.6s ease-in-out infinite;
+}
+
+.card:hover .fl {
+  animation-duration: 1.6s;
+}
+
+.card:hover .sp {
+  animation-duration: 3s;
+}

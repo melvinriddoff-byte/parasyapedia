@@ -1,0 +1,9 @@
+{
+  "editor.formatOnSave": true,
+  "editor.tabSize": 2,
+  "typescript.tsdk": "node_modules/typescript/lib",
+  "typescript.preferences.importModuleSpecifier": "non-relative",
+  "files.associations": { "*.css": "css" },
+  "css.validate": true,
+  "emmet.includeLanguages": { "typescriptreact": "html" }
+}

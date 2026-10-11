@@ -1,0 +1,40 @@
+.trans {
+  position: fixed;
+  inset: 0;
+  z-index: 95;
+  background: var(--ember);
+  color: var(--ink);
+  display: grid;
+  place-items: center;
+  transform: translateY(100%);
+  pointer-events: none;
+  text-align: center;
+}
+
+.trans.in {
+  transform: none;
+  transition: transform 0.65s var(--ease);
+  pointer-events: all;
+}
+
+.trans.out {
+  transform: translateY(-100%);
+  transition: transform 0.7s var(--ease);
+}
+
+.trans strong {
+  display: block;
+  font-family: var(--f-head);
+  font-weight: 800;
+  font-size: clamp(2.6rem, 11vw, 8rem);
+  line-height: 1;
+  letter-spacing: -0.04em;
+  margin-top: 0.2em;
+}
+
+.trans-star {
+  width: 54px;
+  height: 54px;
+  margin: 0 auto 14px;
+  animation: spin 2.4s linear infinite;
+}

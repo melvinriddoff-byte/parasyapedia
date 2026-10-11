@@ -1,0 +1,35 @@
+/* Keyframes shared across components. */
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes pulse {
+  50% {
+    transform: scale(1.05);
+  }
+}
+
+@keyframes floaty {
+  50% {
+    transform: translateY(-1.4cqw);
+  }
+}
+
+@keyframes idle {
+  0%,
+  100% {
+    transform: rotateY(-7deg) rotateX(3deg);
+  }
+
+  50% {
+    transform: rotateY(7deg) rotateX(-3deg);
+  }
+}
+
+@keyframes prog {
+  to {
+    transform: scaleX(1);
+  }
+}

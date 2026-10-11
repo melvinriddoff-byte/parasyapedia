@@ -1,0 +1,162 @@
+/* Reset, document defaults and typography helpers. */
+:root {
+  box-sizing: border-box;
+  padding-top: env(safe-area-inset-top, 0px);
+  padding-bottom: env(safe-area-inset-bottom, 0px);
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: env(safe-area-inset-top, 0px);
+  background: #F6F2EA;
+  -webkit-text-size-adjust: 100%;
+}
+
+html.lock {
+  overflow: hidden;
+}
+
+body {
+  margin: 0;
+  background: var(--parchment);
+  color: var(--ink);
+  font-family: var(--f-body);
+  font-size: clamp(15px, 0.35vw + 14px, 18px);
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+  overflow-x: clip;
+}
+
+svg {
+  display: block;
+  max-width: 100%;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+button {
+  font: inherit;
+  color: inherit;
+  background: none;
+  border: 0;
+  padding: 0;
+  cursor: pointer;
+}
+
+p {
+  margin: 0 0 1em;
+}
+
+h1,
+h2,
+h3,
+h4 {
+  margin: 0;
+}
+
+ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+figure {
+  margin: 0;
+}
+
+::selection {
+  background: var(--saffron);
+  color: var(--ink);
+}
+
+:focus-visible {
+  outline: 3px solid var(--saffron);
+  outline-offset: 3px;
+  border-radius: 6px;
+}
+
+h1:focus {
+  outline: none;
+}
+
+[hidden] {
+  display: none !important;
+}
+
+/* visually hidden, still read by screen readers */
+.sr {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  white-space: nowrap;
+}
+
+/* typography helpers */
+.h2 {
+  font-family: var(--f-head);
+  font-weight: 800;
+  font-size: clamp(2.2rem, 6.2vw, 5.2rem);
+  line-height: 0.98;
+  letter-spacing: -0.035em;
+}
+
+.serif {
+  font-family: var(--f-serif);
+  font-style: italic;
+  font-weight: 400;
+  letter-spacing: -0.01em;
+}
+
+.lede {
+  font-size: clamp(1.05rem, 1.2vw + 0.7rem, 1.4rem);
+  line-height: 1.5;
+  max-width: 34em;
+}
+
+.spaced {
+  font-size: 0.72rem;
+  font-weight: 500;
+  letter-spacing: 0.32em;
+  text-transform: uppercase;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+    transition-delay: 0s !important;
+  }
+}
+
+/* One orange arrow cursor everywhere, the same on hover (text fields keep the caret) */
+html,
+html *,
+html a,
+html button,
+html [role='button'] {
+  cursor: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='28' height='28' viewBox='0 0 28 28'><path d='M4 2.5 4 21 8.7 16.6 11.9 24 15.2 22.6 12 15.3 18.5 15.3Z' fill='%23FFB224' stroke='%230F0F0E' stroke-width='1.6' stroke-linejoin='round'/></svg>") 4 2,
+    auto;
+}
+
+html input,
+html textarea {
+  cursor: text;
+}

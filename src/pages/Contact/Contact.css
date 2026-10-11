@@ -1,0 +1,45 @@
+.contact-grid {
+  display: grid;
+  grid-template-columns: 0.8fr 1.2fr;
+  gap: clamp(28px, 6vw, 100px);
+  align-items: start;
+}
+
+.info .lede {
+  margin-bottom: 1.2em;
+}
+
+.info ul {
+  display: grid;
+  gap: 18px;
+  margin-top: 28px;
+}
+
+.info li small {
+  display: block;
+  font-weight: 700;
+  font-size: 0.72rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  opacity: 0.75;
+  margin-bottom: 2px;
+}
+
+.info li a {
+  font-family: var(--f-head);
+  font-weight: 800;
+  font-size: clamp(1.05rem, 1.8vw, 1.45rem);
+  border-bottom: 3px solid var(--midnight);
+  display: inline-block;
+  word-break: break-all;
+}
+
+.info .place {
+  font-weight: 700;
+}
+
+@media (max-width: 900px) {
+  .contact-grid {
+    grid-template-columns: 1fr;
+  }
+}

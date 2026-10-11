@@ -1,0 +1,52 @@
+.card {
+  position: relative;
+  display: block;
+  text-align: left;
+  border-radius: clamp(18px, 2vw, 28px);
+}
+
+.art {
+  position: relative;
+  aspect-ratio: 4 / 5;
+  border-radius: clamp(18px, 2vw, 28px);
+  overflow: hidden;
+  container-type: inline-size;
+  transition: transform 0.6s var(--ease);
+}
+
+.card:hover .art,
+.card:focus-visible .art {
+  transform: translateY(-10px) rotate(-1.2deg);
+}
+
+.meta {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 10px;
+  margin-top: 16px;
+}
+
+.meta .tag {
+  font-weight: 700;
+  font-size: 0.72rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+}
+
+.meta .con {
+  font-size: 0.72rem;
+  font-weight: 700;
+  border: 2px solid currentColor;
+  border-radius: 999px;
+  padding: 0.2em 0.8em;
+  white-space: nowrap;
+}
+
+.card h3 {
+  font-family: var(--f-head);
+  font-weight: 700;
+  font-size: clamp(1.15rem, 1.7vw, 1.5rem);
+  letter-spacing: -0.02em;
+  margin-top: 6px;
+}

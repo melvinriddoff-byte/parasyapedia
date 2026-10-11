@@ -1,0 +1,33 @@
+.testimonials-header {
+  padding-bottom: clamp(30px, 4vw, 56px);
+}
+
+.testimonials-slider {
+  padding: 0 0 clamp(56px, 8vw, 110px);
+}
+
+.sample-note {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.7em;
+  background: var(--saffron);
+  color: var(--ink);
+  padding: 0.7em 1.2em;
+  border-radius: 14px;
+  font-weight: 700;
+  font-size: 0.9rem;
+  margin: 0 0 clamp(20px, 3vw, 36px);
+}
+
+.tgrid {
+  columns: 3 300px;
+  column-gap: clamp(16px, 2vw, 28px);
+  transition:
+    opacity 0.22s,
+    transform 0.22s;
+}
+
+.tgrid.fading {
+  opacity: 0;
+  transform: scale(0.985);
+}

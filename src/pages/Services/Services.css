@@ -1,0 +1,33 @@
+.services-body {
+  padding-top: clamp(40px, 6vw, 80px);
+}
+
+.service-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: clamp(26px, 3vw, 44px) clamp(18px, 2.4vw, 34px);
+  transition:
+    opacity 0.22s,
+    transform 0.22s;
+}
+
+.service-grid.fading {
+  opacity: 0;
+  transform: scale(0.985);
+}
+
+@media (max-width: 900px) {
+  .service-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+@media (max-width: 560px) {
+  .service-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+.perch {
+  position: relative;
+}

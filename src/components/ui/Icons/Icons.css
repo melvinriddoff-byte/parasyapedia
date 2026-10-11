@@ -1,0 +1,11 @@
+.icon {
+  display: block;
+  max-width: 100%;
+}
+
+.icon-star {
+  display: inline-block;
+  width: 1em;
+  height: 1em;
+  color: currentColor;
+}

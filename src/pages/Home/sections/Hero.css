@@ -1,0 +1,236 @@
+.hero {
+  min-height: 100vh;
+  min-height: calc(100svh - var(--safe-t) - var(--safe-b));
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: calc(120px + var(--safe-t)) var(--pad) 90px;
+  overflow: hidden;
+}
+
+.hero-grid {
+  display: grid;
+  grid-template-columns: 1.15fr 0.85fr;
+  gap: clamp(24px, 5vw, 80px);
+  align-items: center;
+  max-width: 1440px;
+  margin-inline: auto;
+  width: 100%;
+}
+
+.hero-intro {
+  display: flex;
+  align-items: center;
+  gap: 1em;
+  margin-bottom: clamp(14px, 2vw, 28px);
+}
+
+.pill {
+  background: var(--saffron);
+  color: var(--ink);
+  font-family: var(--f-head);
+  font-weight: 800;
+  letter-spacing: 0.04em;
+  padding: 0.7em 1.4em;
+  border-radius: 999px;
+  font-size: 0.85rem;
+}
+
+.hero-title {
+  font-family: var(--f-head);
+  font-weight: 800;
+  font-size: clamp(3.3rem, 10.6vw, 9.4rem);
+  line-height: 0.9;
+  letter-spacing: -0.045em;
+}
+
+.hero-title .serif {
+  font-family: inherit;
+  font-style: normal;
+  font-weight: inherit;
+  color: var(--ember);
+  letter-spacing: inherit;
+}
+
+.hero .lede {
+  margin-top: clamp(18px, 2.4vw, 32px);
+  color: color-mix(in srgb, var(--ink) 78%, transparent);
+}
+
+.cta-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 14px;
+  margin-top: clamp(22px, 3vw, 40px);
+}
+
+/* headline words rise once the opening title card has lifted (html.is-ready) */
+.hero .hero-word {
+  display: inline-block;
+  white-space: nowrap;
+  transform: translateY(112%);
+  transition: transform 1.15s var(--ease);
+  transition-delay: calc(var(--i) * 0.12s + 0.15s);
+}
+
+.is-ready .hero .hero-word {
+  transform: none;
+}
+
+.hero-fade {
+  opacity: 0;
+  transition: opacity 1s 0.9s;
+}
+
+.is-ready .hero-fade {
+  opacity: 1;
+}
+
+/* film-frame card */
+.film-wrap {
+  perspective: 1200px;
+  width: min(100%, 470px);
+  margin-inline: auto;
+}
+
+.film {
+  position: relative;
+  aspect-ratio: 551 / 668;
+  transform-style: preserve-3d;
+  will-change: transform;
+  cursor: pointer;
+  display: block;
+  width: 100%;
+}
+
+.film-link {
+  position: absolute;
+  inset: 0;
+  display: block;
+}
+
+.film-in {
+  position: absolute;
+  inset: 0;
+  background: var(--stone-soft);
+  border-radius: 11% / 9%;
+  overflow: hidden;
+  container-type: inline-size;
+}
+
+.film .perf {
+  position: absolute;
+  left: 6.7%;
+  width: 2.8%;
+  height: 3.7%;
+  background: #D9D2C5;
+  border-radius: 4px;
+}
+
+.f-sun {
+  position: absolute;
+  left: 21.5%;
+  top: 11.3%;
+  width: 53%;
+}
+
+.sun-core {
+  width: 100%;
+  aspect-ratio: 1;
+  border-radius: 50%;
+  background: var(--saffron);
+  display: grid;
+  place-items: center;
+  animation: pulse 3.4s ease-in-out infinite;
+  transition: transform 0.5s var(--ease);
+}
+
+.film:hover .sun-core {
+  transform: scale(1.07);
+}
+
+.sun-core svg {
+  width: 32%;
+  margin-left: 7%;
+  color: var(--ink);
+}
+
+.f-arch {
+  position: absolute;
+  left: 13.8%;
+  right: 3.6%;
+  bottom: 0;
+  height: 46.4%;
+}
+
+.f-arch i {
+  display: block;
+  width: 100%;
+  height: 100%;
+  background: var(--ember);
+  border-radius: 999px 999px 0 0;
+}
+
+.f-pill {
+  position: absolute;
+  left: 29.4%;
+  width: 59.2%;
+  top: 56.9%;
+  height: 10.5%;
+}
+
+.f-pill i {
+  display: block;
+  width: 100%;
+  height: 100%;
+  background: var(--saffron);
+  border-radius: 999px;
+}
+
+.f-star {
+  position: absolute;
+  left: 79.1%;
+  top: 9.3%;
+  width: 11.8%;
+  color: var(--ember);
+}
+
+.f-star svg {
+  width: 100%;
+  height: auto;
+  aspect-ratio: 1;
+  animation: spin 9s linear infinite;
+}
+
+.f-tag {
+  position: absolute;
+  left: 11%;
+  bottom: 5.2%;
+  font-weight: 700;
+  font-size: clamp(8px, 2.2cqw, 12px);
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+  color: var(--ink);
+}
+
+/* touch devices have no pointer to follow, so the card sways on its own */
+@media (hover: none) {
+  .film {
+    animation: idle 7s ease-in-out infinite;
+  }
+}
+
+@media (max-width: 900px) {
+  .hero {
+    padding-top: calc(104px + var(--safe-t));
+    padding-bottom: 70px;
+  }
+
+  .hero-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .film-wrap {
+    width: min(78%, 380px);
+  }
+}

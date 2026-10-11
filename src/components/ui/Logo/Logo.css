@@ -1,0 +1,27 @@
+.lockup {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.75em;
+}
+
+.lockup i {
+  display: block;
+  background: currentColor;
+  mask: center / contain no-repeat;
+  -webkit-mask: center / contain no-repeat;
+}
+
+.lockup i.lockup-mark {
+  height: 32px;
+  aspect-ratio: 728 / 791;
+  color: var(--lg-fg, var(--ember));
+  mask-image: url('/brand/logo-mark.png');
+  -webkit-mask-image: url('/brand/logo-mark.png');
+}
+
+.lockup i.lockup-word {
+  height: 20px;
+  aspect-ratio: 926 / 142;
+  mask-image: url('/brand/logo-wordmark.png');
+  -webkit-mask-image: url('/brand/logo-wordmark.png');
+}

@@ -1,0 +1,27 @@
+.marquee {
+  overflow: hidden;
+}
+
+.mq-track {
+  display: flex;
+  width: max-content;
+}
+
+.mq-group {
+  display: flex;
+  align-items: center;
+  flex: none;
+}
+
+.mq-copy {
+  display: contents;
+}
+
+.marquee.static .mq-track {
+  width: auto;
+  flex-wrap: wrap;
+}
+
+.marquee.static .mq-group {
+  flex-wrap: wrap;
+}

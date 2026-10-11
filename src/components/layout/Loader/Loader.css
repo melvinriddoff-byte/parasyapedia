@@ -1,0 +1,60 @@
+.loader {
+  position: fixed;
+  inset: 0;
+  z-index: 100;
+  background: var(--ember);
+  color: var(--ink);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: calc(24px + var(--safe-t)) var(--pad) calc(24px + var(--safe-b));
+  transition: transform 1s var(--ease);
+}
+
+.loader.done {
+  transform: translateY(-100%);
+}
+
+.loader .slate {
+  display: flex;
+  justify-content: space-between;
+  font-weight: 700;
+  font-size: 0.75rem;
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+}
+
+.loader .count-up {
+  font-family: var(--f-head);
+  font-weight: 800;
+  font-size: clamp(6rem, 30vw, 22rem);
+  line-height: 0.8;
+  letter-spacing: -0.05em;
+}
+
+.loader .lbar {
+  height: 6px;
+  background: rgba(15, 15, 14, 0.2);
+  border-radius: 6px;
+  overflow: hidden;
+  margin-top: 18px;
+}
+
+.loader .lbar i {
+  display: block;
+  height: 100%;
+  background: var(--midnight);
+  transform-origin: 0 50%;
+  transform: scaleX(0);
+}
+
+.loader .lstar {
+  position: absolute;
+  right: var(--pad);
+  top: 50%;
+  width: clamp(60px, 12vw, 140px);
+  height: clamp(60px, 12vw, 140px);
+  margin-top: -6vw;
+  animation: spin 3s linear infinite;
+  color: var(--ink);
+}

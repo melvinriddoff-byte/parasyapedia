@@ -1,0 +1,102 @@
+.btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.7em;
+  padding: 1em 1.6em;
+  border-radius: 999px;
+  font-weight: 700;
+  font-size: 0.95rem;
+  line-height: 1;
+  border: 2px solid transparent;
+  transition:
+    background 0.3s,
+    color 0.3s,
+    transform 0.3s var(--ease),
+    border-color 0.3s;
+}
+
+.btn svg {
+  width: 1.15em;
+  height: 1.15em;
+}
+
+.btn:active {
+  transform: scale(0.97);
+}
+
+.btn-ember {
+  background: var(--ember);
+  color: var(--ink);
+}
+
+.btn-ember:hover {
+  background: var(--saffron);
+}
+
+.btn-line {
+  border-color: currentColor;
+}
+
+.btn-line:hover {
+  background: var(--parchment);
+  color: var(--ink);
+  border-color: var(--parchment);
+}
+
+.s-light .btn-line:hover,
+.s-soft .btn-line:hover,
+.s-sand .btn-line:hover,
+.s-saffron .btn-line:hover {
+  background: var(--midnight);
+  color: var(--parchment);
+  border-color: var(--ink);
+}
+
+.btn-dark {
+  background: var(--midnight);
+  color: var(--parchment);
+}
+
+.btn-dark:hover {
+  background: var(--parchment);
+  color: var(--ink);
+}
+
+.round {
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  background: var(--midnight);
+  color: var(--parchment);
+  display: grid;
+  place-items: center;
+  transition:
+    background 0.3s,
+    transform 0.3s var(--ease),
+    opacity 0.3s;
+}
+
+.round:hover {
+  background: var(--ember);
+  color: var(--ink);
+}
+
+.round:active {
+  transform: scale(0.94);
+}
+
+.round[aria-disabled='true'] {
+  opacity: 0.35;
+  pointer-events: none;
+}
+
+.round svg {
+  width: 20px;
+  height: 20px;
+}
+
+@media (max-width: 560px) {
+  .btn {
+    padding: 0.95em 1.4em;
+  }
+}
