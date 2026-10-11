@@ -4,7 +4,6 @@ import { TestimonialSlider } from '@/components/testimonials/TestimonialSlider/T
 import { CtaBand } from '@/components/ui/CtaBand/CtaBand';
 import { FilterBar } from '@/components/ui/FilterChips/FilterChips';
 import { PageHeader } from '@/components/ui/PageHeader/PageHeader';
-import { siteConfig } from '@/config/site';
 import { typeFilterOptions, type TypeFilter } from '@/data/filters';
 import { testimonials } from '@/data/testimonials';
 import { useFadeFilter } from '@/hooks/useFadeFilter';
@@ -30,11 +29,6 @@ export function Testimonials() {
 
       <section className="testimonials-slider s-soft">
         <div className="wrap">
-          {siteConfig.sampleTestimonials && (
-            <p className="sample-note">
-              These are sample testimonials. Replace them with real client quotes before you publish.
-            </p>
-          )}
           <TestimonialSlider items={testimonials} />
         </div>
       </section>
