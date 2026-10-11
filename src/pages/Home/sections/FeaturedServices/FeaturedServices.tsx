@@ -1,6 +1,7 @@
 import { ServiceRow } from '@/components/services/ServiceRow/ServiceRow';
 import { Button } from '@/components/ui/Button/Button';
 import { TitleReveal } from '@/components/ui/TitleReveal/TitleReveal';
+import './FeaturedServices.css';
 
 /** Swipeable preview of our services. */
 export function FeaturedServices() {

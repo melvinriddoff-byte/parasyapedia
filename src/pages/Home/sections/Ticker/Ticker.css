@@ -1,0 +1,29 @@
+/* ticker under the hero */
+.ticker {
+  background: var(--ember);
+  color: var(--ink);
+  overflow: hidden;
+  padding-block: clamp(14px, 2vw, 22px);
+  border-block: 3px solid var(--midnight);
+}
+
+.ticker .mq-copy span {
+  font-family: var(--f-head);
+  font-weight: 800;
+  font-size: clamp(1.3rem, 3vw, 2.4rem);
+  letter-spacing: -0.02em;
+  white-space: nowrap;
+  padding-inline: 0.5em;
+  display: inline-flex;
+  align-items: center;
+  gap: 1em;
+}
+
+.ticker .mq-copy svg {
+  font-size: 0.8em;
+}
+
+.ticker .ml {
+  font-family: var(--f-ml);
+  font-weight: 700;
+}

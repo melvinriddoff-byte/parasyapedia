@@ -12,11 +12,6 @@ export interface SiteConfig {
   /** Instagram handle without the @. */
   instagram: string;
   location: string;
-  /**
-   * While true, testimonials are labelled "Sample" and a notice is shown.
-   * Set to false once the quotes in src/data/testimonials.ts are real.
-   */
-  sampleTestimonials: boolean;
 }
 
 export const siteConfig: SiteConfig = {
@@ -26,7 +21,6 @@ export const siteConfig: SiteConfig = {
   whatsapp: '',
   instagram: 'parasya.pedia',
   location: 'Kerala, India',
-  sampleTestimonials: true,
 };
 
 export const instagramUrl = `https://instagram.com/${siteConfig.instagram}`;

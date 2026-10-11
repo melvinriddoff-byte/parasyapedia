@@ -94,21 +94,6 @@
   padding: 0.25em 0.9em;
 }
 
-.slide .sample {
-  position: absolute;
-  right: 0;
-  top: 0;
-  background: var(--midnight);
-  color: var(--parchment);
-  font-weight: 700;
-  font-size: 0.66rem;
-  letter-spacing: 0.2em;
-  text-transform: uppercase;
-  padding: 0.45em 1em;
-  border-radius: 99px;
-  font-style: normal;
-}
-
 .qs-ctrl {
   display: flex;
   align-items: center;

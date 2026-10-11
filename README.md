@@ -38,11 +38,11 @@ You can also press **Ctrl + Shift + B** to run the "Start dev server" task, or *
 | What | Where | Notes |
 |---|---|---|
 | Email, WhatsApp, Instagram, location | `src/config/site.ts` | Read by the header menu, footer, contact page and contact form. WhatsApp is hidden while empty. |
-| Testimonials | `src/data/testimonials.ts` | **The six quotes are samples.** Replace them with real quotes (with permission), then set `sampleTestimonials: false` in `src/config/site.ts` to remove the "Sample" tags and notice. |
+| Testimonials | `src/data/testimonials.ts` | **The six quotes, names and brands are invented placeholders.** Replace them with real Kerala clients' quotes, names and brands (with permission) before launch. |
 | Product concepts | `src/data/offerings.ts` | The service cards, drawn with flat brand shapes. Edit as your offering changes. |
 | Services, FAQ, principles | `src/data/services.ts`, `faq.ts`, `principles.ts` | Check every claim (languages, formats) is true for your studio. |
 | Page titles | `src/data/routes.ts` | Browser tab titles and the page names in the menu. |
-| Logo and favicon | `public/brand/`, `public/favicon.png` | Cut from `logo1.png`. The P and the wordmark are masks, so they take the page colours. |
+| Logo and favicon | `public/brand/`, `public/favicon.png` | Cut from `brand-assets/logo1.png`. The P and the wordmark are masks, so they take the page colours. |
 
 The contact form has **no backend**. It prepares the brief and lets the visitor send it by email or WhatsApp, or copy it. If you want submissions stored, connect a form service (Formspree, Netlify Forms, your own API) in `src/components/contact/BriefForm/BriefForm.tsx`.
 
@@ -57,7 +57,16 @@ parasya-pedia/
 │   ├── launch.json
 │   ├── settings.json
 │   └── tasks.json
+├── brand-assets/
+│   ├── logo1.png
+│   └── logo2.png
 ├── public/
+│   ├── brand/
+│   │   ├── logo-mark.png
+│   │   └── logo-wordmark.png
+│   ├── mascots/
+│   │   ├── crt-directions.webp
+│   │   └── crt-reactions.webp
 │   ├── _redirects
 │   └── favicon.png
 ├── src/
@@ -71,9 +80,6 @@ parasya-pedia/
 │   │   │       ├── BriefForm.css
 │   │   │       └── BriefForm.tsx
 │   │   ├── layout/
-│   │   │   ├── Cursor/
-│   │   │   │   ├── Cursor.css
-│   │   │   │   └── Cursor.tsx
 │   │   │   ├── Footer/
 │   │   │   │   ├── Footer.css
 │   │   │   │   └── Footer.tsx
@@ -99,15 +105,15 @@ parasya-pedia/
 │   │   │       ├── Toast.css
 │   │   │       └── Toast.tsx
 │   │   ├── services/
+│   │   │   ├── ProjectModal/
+│   │   │   │   ├── ProjectModal.css
+│   │   │   │   └── ProjectModal.tsx
 │   │   │   ├── ServiceCard/
 │   │   │   │   ├── ServiceCard.css
 │   │   │   │   └── ServiceCard.tsx
-│   │   │   ├── ServiceRow/
-│   │   │   │   ├── ServiceRow.css
-│   │   │   │   └── ServiceRow.tsx
-│   │   │   └── ProjectModal/
-│   │   │       ├── ProjectModal.css
-│   │   │       └── ProjectModal.tsx
+│   │   │   └── ServiceRow/
+│   │   │       ├── ServiceRow.css
+│   │   │       └── ServiceRow.tsx
 │   │   ├── testimonials/
 │   │   │   ├── TestimonialCard/
 │   │   │   │   ├── TestimonialCard.css
@@ -133,10 +139,15 @@ parasya-pedia/
 │   │       │   ├── Icons.css
 │   │       │   └── Icons.tsx
 │   │       ├── Logo/
+│   │       │   ├── Logo.css
 │   │       │   └── Logo.tsx
 │   │       ├── Marquee/
 │   │       │   ├── Marquee.css
 │   │       │   └── Marquee.tsx
+│   │       ├── Mascot/
+│   │       │   ├── Mascot.css
+│   │       │   ├── Mascot.tsx
+│   │       │   └── mascotStore.ts
 │   │       ├── PageHeader/
 │   │       │   ├── PageHeader.css
 │   │       │   └── PageHeader.tsx
@@ -162,11 +173,11 @@ parasya-pedia/
 │   │   ├── decos.ts
 │   │   ├── faq.ts
 │   │   ├── filters.ts
+│   │   ├── offerings.ts
 │   │   ├── principles.ts
 │   │   ├── routes.ts
 │   │   ├── services.ts
-│   │   ├── testimonials.ts
-│   │   └── offerings.ts
+│   │   └── testimonials.ts
 │   ├── hooks/
 │   │   ├── pointerStore.ts
 │   │   ├── useBodyLock.ts
@@ -177,7 +188,8 @@ parasya-pedia/
 │   │   ├── useMediaQuery.ts
 │   │   ├── useNavVisibility.ts
 │   │   ├── usePointerMotion.ts
-│   │   └── useReducedMotion.ts
+│   │   ├── useReducedMotion.ts
+│   │   └── useSmoothScroll.ts
 │   ├── pages/
 │   │   ├── About/
 │   │   │   ├── About.css
@@ -187,14 +199,23 @@ parasya-pedia/
 │   │   │   └── Contact.tsx
 │   │   ├── Home/
 │   │   │   ├── sections/
-│   │   │   │   ├── ClientsStrip.tsx
-│   │   │   │   ├── FeaturedServices.tsx
-│   │   │   │   ├── Hero.css
-│   │   │   │   ├── Hero.tsx
-│   │   │   │   ├── Intro.tsx
-│   │   │   │   ├── TestimonialPreview.tsx
-│   │   │   │   └── Ticker.tsx
-│   │   │   ├── Home.css
+│   │   │   │   ├── ClientsStrip/
+│   │   │   │   │   ├── ClientsStrip.css
+│   │   │   │   │   └── ClientsStrip.tsx
+│   │   │   │   ├── FeaturedServices/
+│   │   │   │   │   ├── FeaturedServices.css
+│   │   │   │   │   └── FeaturedServices.tsx
+│   │   │   │   ├── Hero/
+│   │   │   │   │   ├── Hero.css
+│   │   │   │   │   └── Hero.tsx
+│   │   │   │   ├── Intro/
+│   │   │   │   │   ├── Intro.css
+│   │   │   │   │   └── Intro.tsx
+│   │   │   │   ├── TestimonialPreview/
+│   │   │   │   │   └── TestimonialPreview.tsx
+│   │   │   │   └── Ticker/
+│   │   │   │       ├── Ticker.css
+│   │   │   │       └── Ticker.tsx
 │   │   │   └── Home.tsx
 │   │   ├── NotFound/
 │   │   │   ├── NotFound.css
@@ -224,7 +245,9 @@ parasya-pedia/
 ├── .gitignore
 ├── .prettierrc
 ├── index.html
+├── package-lock.json
 ├── package.json
+├── README.md
 ├── tsconfig.app.json
 ├── tsconfig.json
 ├── tsconfig.node.json
@@ -234,15 +257,19 @@ parasya-pedia/
 
 ### How the code is organised
 
-- **`pages/`** – one folder per route. A page file only composes components and reads data. Page-specific styles live next to it.
-- **`components/layout/`** – things that wrap every page: `Layout` (the shell), `Header`, `MobileMenu`, `Footer`, `Loader`, `PageTransition`, `Cursor`, `ScrollProgress`, `Toast`.
-- **`components/ui/`** – small reusable building blocks: `Button`, `Accordion`, `Marquee`, `FilterChips`, `TitleReveal`, `PageHeader`, `CtaBand`, `Shapes`, `ScrubText`, icons and the logo.
+Every component and page lives in its own folder, with its `.tsx` and `.css` side by side and named the same (for example `components/ui/Button/Button.tsx` and `Button.css`).
+
+- **`pages/`** – one folder per route (`Home`, `About`, `Services`, `Testimonials`, `Contact`, `NotFound`). A page file only composes components and reads data. The Home page is split into `sections/` (`Hero`, `Ticker`, `Intro`, `FeaturedServices`, `ClientsStrip`, `TestimonialPreview`), each with its own folder and CSS.
+- **`components/layout/`** – things that wrap every page: `Layout` (the shell), `Header`, `MobileMenu`, `Footer`, `Loader`, `PageTransition`, `ScrollProgress`, `Toast`.
+- **`components/ui/`** – small reusable building blocks: `Button`, `Accordion`, `Marquee`, `FilterChips`, `TitleReveal`, `PageHeader`, `CtaBand`, `Shapes`, `ScrubText`, `Icons`, `Logo` and the `Mascot`.
 - **`components/services|testimonials|contact|about/`** – feature components used by one or two pages.
 - **`data/`** – all copy and artwork as typed data. Edit content here, not inside components.
 - **`context/`** – shared state: page transition, project modal, toast.
-- **`hooks/`** – reusable behaviour: in-view detection, pointer tilt, scroll header, body lock, fit-to-width text and more.
+- **`hooks/`** – reusable behaviour: in-view detection, pointer tilt, smooth scroll, scroll header, body lock, fit-to-width text and more.
 - **`styles/`** – global CSS only: tokens, base, layout helpers, keyframes. Everything else is styled next to its component.
-- **`types/`** – shared TypeScript types.
+- **`types/`** and **`utils/`** – shared TypeScript types and small helpers.
+- **`public/`** – files served as they are: the logo pieces in `brand/`, the mascot sheets in `mascots/`, the favicon.
+- **`brand-assets/`** – the original logo sheets (`logo1.png`, `logo2.png`). Not used by the site; kept as the source.
 - **`@/`** is a shortcut for `src/`, so imports look like `import { Button } from '@/components/ui/Button/Button'`.
 
 ---

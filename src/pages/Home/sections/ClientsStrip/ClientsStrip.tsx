@@ -1,6 +1,7 @@
 import { Marquee } from '@/components/ui/Marquee/Marquee';
 import { TitleReveal } from '@/components/ui/TitleReveal/TitleReveal';
 import { audiences, deliverableTags } from '@/data/clients';
+import './ClientsStrip.css';
 
 /** "Who we make for" headline over two counter-rotating pill strips. */
 export function ClientsStrip() {

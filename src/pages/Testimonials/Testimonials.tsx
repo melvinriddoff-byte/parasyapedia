@@ -27,7 +27,7 @@ export function Testimonials() {
         className="testimonials-header"
       />
 
-      <section className="testimonials-slider s-soft">
+      <section className="testimonials-slider s-light">
         <div className="wrap">
           <TestimonialSlider items={testimonials} />
         </div>

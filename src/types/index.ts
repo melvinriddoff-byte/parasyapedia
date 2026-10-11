@@ -52,6 +52,10 @@ export interface Testimonial {
   quote: string;
   name: string;
   role: string;
+  /** The client's brand. */
+  brand: string;
+  /** Town or district, e.g. "Thrissur, Kerala". */
+  place: string;
   category: WorkType;
 }
 

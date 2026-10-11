@@ -1,7 +1,6 @@
 import { useRef, useState } from 'react';
 import { PauseIcon, PlayIcon, ArrowIcon } from '@/components/ui/Icons/Icons';
 import { RoundButton } from '@/components/ui/Button/RoundButton';
-import { siteConfig } from '@/config/site';
 import { useInView } from '@/hooks/useInView';
 import { useReducedMotion } from '@/hooks/useReducedMotion';
 import type { Testimonial } from '@/types';
@@ -48,10 +47,12 @@ export function TestimonialSlider({ items }: TestimonialSliderProps) {
             <blockquote>{item.quote}</blockquote>
             <figcaption>
               <strong>{item.name}</strong>
-              <span>{item.role}</span>
+              <span>
+                {item.role}, {item.brand}
+              </span>
+              <span>{item.place}</span>
               <em>{item.category}</em>
             </figcaption>
-            {siteConfig.sampleTestimonials && <b className="sample">Sample</b>}
           </figure>
         ))}
       </div>

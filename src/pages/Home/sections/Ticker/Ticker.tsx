@@ -1,5 +1,6 @@
 import { Marquee } from '@/components/ui/Marquee/Marquee';
 import { StarIcon } from '@/components/ui/Icons/Icons';
+import './Ticker.css';
 
 const WORDS = ['AI brand films', 'AI ads', 'AI social content'];
 

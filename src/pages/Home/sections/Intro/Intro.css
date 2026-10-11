@@ -1,0 +1,84 @@
+/* intro */
+.intro-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: clamp(28px, 6vw, 96px);
+  align-items: start;
+}
+
+.intro-grid .lede {
+  margin-bottom: 28px;
+}
+
+.svc {
+  display: grid;
+  gap: 14px;
+}
+
+.svc a {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: 6px 20px;
+  align-items: center;
+  padding: clamp(18px, 2.2vw, 28px) clamp(20px, 2.6vw, 34px);
+  border-radius: clamp(18px, 2.4vw, 30px);
+  background: var(--sand);
+  transition:
+    background 0.4s,
+    transform 0.5s var(--ease);
+}
+
+.svc a:nth-child(2) {
+  background: var(--saffron);
+}
+
+.svc a:nth-child(3) {
+  background: var(--saffron);
+}
+
+.svc a:hover {
+  background: var(--ember);
+  transform: translateX(10px);
+}
+
+.svc h3 {
+  font-family: var(--f-head);
+  font-weight: 800;
+  font-size: clamp(1.3rem, 2.4vw, 2rem);
+  letter-spacing: -0.02em;
+}
+
+.svc p {
+  margin: 0;
+  grid-column: 1;
+  max-width: 30em;
+  font-size: 0.97rem;
+}
+
+.svc svg {
+  grid-row: 1 / 3;
+  grid-column: 2;
+  width: 44px;
+  height: 44px;
+  background: var(--midnight);
+  color: var(--parchment);
+  border-radius: 50%;
+  padding: 11px;
+  transition: transform 0.5s var(--ease);
+}
+
+.svc a:hover svg {
+  transform: rotate(-45deg);
+}
+
+@media (max-width: 900px) {
+  .intro-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 560px) {
+  .svc a:hover {
+    transform: none;
+  }
+}
