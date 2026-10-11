@@ -26,20 +26,11 @@
   white-space: nowrap;
   transition:
     background 0.3s,
-    color 0.3s;
+    color 0.3s,
+    border-color 0.3s;
 }
 
 .pillrow .mq-copy span:hover {
-  background: var(--midnight);
-  color: var(--sand);
-}
-
-.pillrow.alt .mq-copy span {
-  background: var(--midnight);
-  color: var(--sand);
-}
-
-.pillrow.alt .mq-copy span:hover {
   background: var(--ember);
   color: var(--ink);
   border-color: var(--ember);

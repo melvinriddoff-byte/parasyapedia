@@ -265,7 +265,7 @@ Every component and page lives in its own folder, with its `.tsx` and `.css` sid
 - **`components/services|testimonials|contact|about/`** – feature components used by one or two pages.
 - **`data/`** – all copy and artwork as typed data. Edit content here, not inside components.
 - **`context/`** – shared state: page transition, project modal, toast.
-- **`hooks/`** – reusable behaviour: in-view detection, pointer tilt, smooth scroll, scroll header, body lock, fit-to-width text and more.
+- **`hooks/`** – reusable behaviour: in-view detection, pointer parallax, smooth scroll, scroll header, body lock, fit-to-width text and more.
 - **`styles/`** – global CSS only: tokens, base, layout helpers, keyframes. Everything else is styled next to its component.
 - **`types/`** and **`utils/`** – shared TypeScript types and small helpers.
 - **`public/`** – files served as they are: the logo pieces in `brand/`, the mascot sheets in `mascots/`, the favicon.
@@ -327,9 +327,9 @@ Units are `cqw` (1% of the container's width), so the artwork scales with its ca
 
 ## 6. Motion and accessibility
 
-- The opening title card, hero headline, page transitions, tilt, marquee speed-up on scroll, scroll-lit text, flip cards, sliders and filters are all built in (no animation library).
-- **Reduced motion** is respected: with "reduce motion" on, the loader, page transition, tilt, marquee, autoplay and scroll effects switch off.
-- Custom cursor and tilt only run for mouse users (`hover: hover` and `pointer: fine`). Touch devices get a gentle idle sway on the hero card instead.
+- The opening title card, hero headline, page transitions, marquee speed-up on scroll, scroll-lit text, flip cards, sliders and filters are all built in (no animation library).
+- **Reduced motion** is respected: with "reduce motion" on, the loader, page transition, header art drift, marquee, autoplay and scroll effects switch off.
+- The header art drift only runs for mouse users (`hover: hover` and `pointer: fine`). The hero prompt-to-frame panel stays still; only the sequence inside it plays.
 - Keyboard: skip link, visible focus rings, focus moves to the page heading after navigation, the modal traps focus and closes with Escape, accordions and sliders are buttons with ARIA state.
 - Safe-area insets are handled for phones with notches (`viewport-fit=cover`).
 

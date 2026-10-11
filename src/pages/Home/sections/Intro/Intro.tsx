@@ -3,14 +3,18 @@ import { TitleReveal } from '@/components/ui/TitleReveal/TitleReveal';
 import { TransitionLink } from '@/components/ui/TransitionLink/TransitionLink';
 import { services } from '@/data/services';
 import { servicesLink } from '@/utils/links';
+import { DirectorViewfinder } from './DirectorViewfinder/DirectorViewfinder';
 import './Intro.css';
 
-/** Short pitch plus the three things the studio makes, each linking to a filtered services page. */
+/** The title above the animated director's viewfinder, a short pitch and the three things the studio makes, each linking to a filtered services page. */
 export function Intro() {
   return (
     <section className="sec s-light">
       <div className="wrap intro-grid">
-        <TitleReveal lines={['Ideas in.', 'Ads out.']} className="h2" />
+        <div className="intro-left">
+          <TitleReveal lines={['Ideas in.', 'Ads out.']} className="h2" />
+          <DirectorViewfinder />
+        </div>
         <div>
           <p className="lede">
             Parasya Pedia makes AI-generated brand films, ads and social content. Give us a product, a brand

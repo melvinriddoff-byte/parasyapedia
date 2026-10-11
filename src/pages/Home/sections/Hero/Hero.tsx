@@ -1,21 +1,16 @@
 import { useRef, type CSSProperties } from 'react';
 import { Button } from '@/components/ui/Button/Button';
-import { PlayIcon, StarIcon } from '@/components/ui/Icons/Icons';
+import { PlayIcon } from '@/components/ui/Icons/Icons';
 import { Mascot } from '@/components/ui/Mascot/Mascot';
-import { TransitionLink } from '@/components/ui/TransitionLink/TransitionLink';
 import { useShrinkToFit } from '@/hooks/useFitText';
-import { useTilt } from '@/hooks/usePointerMotion';
+import { PromptToFrame } from './PromptToFrame/PromptToFrame';
 import './Hero.css';
 
-const PERFORATIONS = [4.2, 26.2, 48.2, 70.2, 92.2];
-
-/** Opening screen: headline on the left, a tilting film-frame card on the right. */
+/** Opening screen: headline on the left, the animated prompt-to-frame panel on the right (the panel itself stays still). */
 export function Hero() {
-  const filmRef = useRef<HTMLDivElement>(null);
   const headingRef = useRef<HTMLHeadingElement>(null);
   const copyRef = useRef<HTMLDivElement>(null);
 
-  useTilt(filmRef);
   useShrinkToFit(headingRef, copyRef, '.hero-word');
 
   return (
@@ -56,30 +51,9 @@ export function Hero() {
         </div>
 
         <div className="film-wrap hero-fade">
-          <div className="film" ref={filmRef} data-cursor="View work">
-            <TransitionLink to="/services" className="film-link" aria-label="See our services">
-              <div className="film-in">
-                {PERFORATIONS.map((top) => (
-                  <span key={top} className="perf" style={{ top: `${top}%` }} />
-                ))}
-                <div className="f-sun" data-depth={14}>
-                  <div className="sun-core">
-                    <PlayIcon />
-                  </div>
-                </div>
-                <div className="f-arch" data-depth={6}>
-                  <i />
-                </div>
-                <div className="f-pill" data-depth={22}>
-                  <i />
-                </div>
-                <div className="f-star" data-depth={32}>
-                  <StarIcon />
-                </div>
-                <span className="f-tag">Scene 01 &middot; Take 01</span>
-              </div>
-            </TransitionLink>
-            <Mascot role="hero" pill="Roll camera!" depth={26} />
+          <div className="film">
+            <PromptToFrame />
+            <Mascot role="hero" pill="Roll camera!" />
           </div>
         </div>
       </div>

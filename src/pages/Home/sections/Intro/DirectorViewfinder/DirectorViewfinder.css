@@ -1,0 +1,429 @@
+/*
+ * Designed at 448px wide. --p is one design pixel, so everything scales with the panel width.
+ * One 12 second loop (the timecode, playhead and clip wipes all share it).
+ */
+.vf {
+  container-type: inline-size;
+  width: 100%;
+  max-width: 400px;
+}
+
+.vf-in {
+  --p: calc(100cqw / 448);
+  --vf-panel: #1c1a18;
+  position: relative;
+  display: grid;
+  gap: calc(var(--p) * 22);
+}
+
+/* camera view */
+.vf-screen {
+  position: relative;
+  aspect-ratio: 16 / 9;
+  border-radius: calc(var(--p) * 18);
+  overflow: hidden;
+  container-type: inline-size;
+  background: var(--vf-panel);
+}
+
+.vf-scene {
+  position: absolute;
+  inset: 0;
+  animation: vf-push 12s ease-in-out infinite alternate;
+}
+
+.vf-grid {
+  position: absolute;
+  z-index: 3;
+  background: rgba(246, 242, 234, 0.2);
+}
+
+.vf-grid-v1,
+.vf-grid-v2 {
+  top: 0;
+  width: 1px;
+  height: 100%;
+}
+
+.vf-grid-v1 {
+  left: 33.3%;
+}
+
+.vf-grid-v2 {
+  left: 66.6%;
+}
+
+.vf-grid-h1,
+.vf-grid-h2 {
+  left: 0;
+  width: 100%;
+  height: 1px;
+}
+
+.vf-grid-h1 {
+  top: 33.3%;
+}
+
+.vf-grid-h2 {
+  top: 66.6%;
+}
+
+.vf-safe {
+  position: absolute;
+  inset: 8%;
+  z-index: 3;
+  border: 1.5px dashed rgba(246, 242, 234, 0.35);
+}
+
+.vf-corner {
+  position: absolute;
+  z-index: 4;
+  width: calc(var(--p) * 26);
+  height: calc(var(--p) * 26);
+  border: 0 solid var(--parchment);
+}
+
+.vf-c-tl {
+  left: calc(var(--p) * 14);
+  top: calc(var(--p) * 14);
+  border-top-width: 3px;
+  border-left-width: 3px;
+}
+
+.vf-c-tr {
+  right: calc(var(--p) * 14);
+  top: calc(var(--p) * 14);
+  border-top-width: 3px;
+  border-right-width: 3px;
+}
+
+.vf-c-bl {
+  left: calc(var(--p) * 14);
+  bottom: calc(var(--p) * 14);
+  border-bottom-width: 3px;
+  border-left-width: 3px;
+}
+
+.vf-c-br {
+  right: calc(var(--p) * 14);
+  bottom: calc(var(--p) * 14);
+  border-bottom-width: 3px;
+  border-right-width: 3px;
+}
+
+.vf-rec {
+  position: absolute;
+  left: calc(var(--p) * 44);
+  top: calc(var(--p) * 20);
+  z-index: 5;
+  display: flex;
+  align-items: center;
+  gap: calc(var(--p) * 8);
+  font-size: calc(var(--p) * 12);
+  font-weight: 700;
+  letter-spacing: 0.2em;
+  color: var(--parchment);
+}
+
+.vf-rec i {
+  display: block;
+  width: calc(var(--p) * 10);
+  height: calc(var(--p) * 10);
+  border-radius: 50%;
+  background: var(--ember);
+  animation: vf-rec 1.2s steps(1) infinite;
+}
+
+.vf-tc {
+  position: absolute;
+  right: calc(var(--p) * 44);
+  top: calc(var(--p) * 20);
+  z-index: 5;
+  height: calc(var(--p) * 18);
+  overflow: hidden;
+  font-size: calc(var(--p) * 13);
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  color: var(--parchment);
+  font-variant-numeric: tabular-nums;
+}
+
+.vf-tc > div {
+  animation: vf-tc 12s steps(12, end) infinite;
+}
+
+.vf-tc > div > div {
+  height: calc(var(--p) * 18);
+  line-height: calc(var(--p) * 18);
+}
+
+.vf-focus {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  z-index: 4;
+  width: calc(var(--p) * 72);
+  height: calc(var(--p) * 72);
+  margin: calc(var(--p) * -36) 0 0 calc(var(--p) * -36);
+  border: 2px solid var(--saffron);
+  border-radius: calc(var(--p) * 10);
+  animation: vf-track 9s ease-in-out infinite;
+}
+
+.vf-focus span {
+  position: absolute;
+  left: -2px;
+  top: calc(var(--p) * -24);
+  padding: calc(var(--p) * 3) calc(var(--p) * 8);
+  border-radius: calc(var(--p) * 6);
+  background: var(--saffron);
+  color: var(--midnight);
+  font-size: calc(var(--p) * 11);
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  white-space: nowrap;
+}
+
+/* edit timeline */
+.vf-line {
+  position: relative;
+  height: calc(var(--p) * 170);
+  border-radius: calc(var(--p) * 16);
+  background: var(--vf-panel);
+  overflow: hidden;
+}
+
+.vf-tick {
+  position: absolute;
+  width: 1px;
+  background: rgba(246, 242, 234, 0.35);
+}
+
+.vf-lab {
+  position: absolute;
+  left: calc(var(--p) * 12);
+  font-size: calc(var(--p) * 11);
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  color: var(--parchment);
+  opacity: 0.7;
+}
+
+.vf-clip {
+  position: absolute;
+  top: calc(var(--p) * 30);
+  height: calc(var(--p) * 46);
+  border-radius: calc(var(--p) * 8);
+  overflow: hidden;
+}
+
+.vf-dim {
+  position: absolute;
+  inset: 0;
+  background: var(--vf-panel);
+  opacity: 0.7;
+  transform-origin: 100% 50%;
+}
+
+.vf-g1 {
+  animation: vf-g1 12s linear infinite;
+}
+
+.vf-g2 {
+  animation: vf-g2 12s linear infinite;
+}
+
+.vf-g3 {
+  animation: vf-g3 12s linear infinite;
+}
+
+.vf-g4 {
+  animation: vf-g4 12s linear infinite;
+}
+
+.vf-bar {
+  position: absolute;
+  width: calc(var(--p) * 4);
+  border-radius: calc(var(--p) * 2);
+  background: var(--parchment);
+  opacity: 0.85;
+  animation: vf-wave ease-in-out infinite;
+}
+
+.vf-cap {
+  position: absolute;
+  top: calc(var(--p) * 136);
+  height: calc(var(--p) * 16);
+  border-radius: calc(var(--p) * 8);
+  background: rgba(217, 210, 197, 0.5);
+}
+
+.vf-play {
+  position: absolute;
+  left: calc(var(--p) * 34);
+  top: 0;
+  z-index: 5;
+  width: 2px;
+  height: 100%;
+  background: var(--parchment);
+  animation: vf-playhead 12s linear infinite;
+}
+
+.vf-play i {
+  position: absolute;
+  left: -6px;
+  top: 0;
+  width: 14px;
+  height: 12px;
+  background: var(--ember);
+  clip-path: polygon(0 0, 100% 0, 50% 100%);
+}
+
+.vf-spark {
+  position: absolute;
+  right: calc(var(--p) * -6);
+  bottom: calc(var(--p) * -26);
+  z-index: 4;
+  width: calc(var(--p) * 46);
+  height: calc(var(--p) * 46);
+  color: var(--ember);
+  animation: spin 14s linear infinite;
+}
+
+/* the loop */
+@keyframes vf-rec {
+  0%,
+  100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.15;
+  }
+}
+
+@keyframes vf-tc {
+  to {
+    transform: translateY(calc(var(--p) * -216));
+  }
+}
+
+@keyframes vf-push {
+  0% {
+    transform: scale(1);
+  }
+  100% {
+    transform: scale(1.1);
+  }
+}
+
+@keyframes vf-track {
+  0%,
+  100% {
+    transform: translate(calc(var(--p) * -70), calc(var(--p) * 18));
+  }
+  25% {
+    transform: translate(calc(var(--p) * 10), calc(var(--p) * -34));
+  }
+  50% {
+    transform: translate(calc(var(--p) * 64), calc(var(--p) * 14));
+  }
+  75% {
+    transform: translate(calc(var(--p) * -14), calc(var(--p) * 34));
+  }
+}
+
+@keyframes vf-playhead {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(calc(var(--p) * 414));
+  }
+}
+
+@keyframes vf-wave {
+  0%,
+  100% {
+    transform: scaleY(0.25);
+  }
+  50% {
+    transform: scaleY(1);
+  }
+}
+
+@keyframes vf-g1 {
+  0% {
+    transform: scaleX(1);
+  }
+  25%,
+  99% {
+    transform: scaleX(0);
+  }
+  100% {
+    transform: scaleX(1);
+  }
+}
+
+@keyframes vf-g2 {
+  0%,
+  20% {
+    transform: scaleX(1);
+  }
+  50%,
+  99% {
+    transform: scaleX(0);
+  }
+  100% {
+    transform: scaleX(1);
+  }
+}
+
+@keyframes vf-g3 {
+  0%,
+  45% {
+    transform: scaleX(1);
+  }
+  75%,
+  99% {
+    transform: scaleX(0);
+  }
+  100% {
+    transform: scaleX(1);
+  }
+}
+
+@keyframes vf-g4 {
+  0%,
+  70% {
+    transform: scaleX(1);
+  }
+  95%,
+  99% {
+    transform: scaleX(0);
+  }
+  100% {
+    transform: scaleX(1);
+  }
+}
+
+/* reduced motion: a still frame, clips lit, playhead at the start */
+@media (prefers-reduced-motion: reduce) {
+  .vf-scene,
+  .vf-rec i,
+  .vf-tc > div,
+  .vf-focus,
+  .vf-dim,
+  .vf-bar,
+  .vf-play,
+  .vf-spark {
+    animation: none;
+  }
+
+  .vf-dim {
+    transform: scaleX(0);
+  }
+
+  .vf-bar {
+    transform: scaleY(0.6);
+  }
+}

@@ -65,10 +65,6 @@
   transform: rotateY(180deg);
 }
 
-.flip.two .face.b {
-  background: var(--saffron);
-}
-
 .face .serif {
   font-size: clamp(1rem, 2vw, 1.6rem);
   line-height: 1.1;
