@@ -41,8 +41,8 @@
   right: 0;
   top: 6cqw;
   text-align: center;
-  font-family: var(--f-serif);
-  font-style: italic;
+  font-family: var(--f-pixel);
+  font-style: normal;
   font-size: 78cqw;
   line-height: 1;
   color: var(--ink);

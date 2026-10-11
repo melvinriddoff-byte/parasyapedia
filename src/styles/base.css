@@ -112,8 +112,8 @@ h1:focus {
 }
 
 .serif {
-  font-family: var(--f-serif);
-  font-style: italic;
+  font-family: var(--f-pixel);
+  font-style: normal;
   font-weight: 400;
   letter-spacing: -0.01em;
 }

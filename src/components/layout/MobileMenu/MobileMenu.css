@@ -30,11 +30,13 @@
 
 .menu a.m {
   display: block;
-  font-family: var(--f-head);
-  font-weight: 800;
-  font-size: clamp(2.2rem, 11vw, 4.6rem);
+  font-family: var(--f-pixel);
+  font-weight: 400;
+  font-size: clamp(2rem, 9.5vw, 4rem);
   line-height: 1.12;
-  letter-spacing: -0.03em;
+  letter-spacing: -0.02em;
+  /* Geist Pixel has one weight, so bold comes from a stroke in the text colour */
+  -webkit-text-stroke: 0.045em currentColor;
   transform: translateY(40px);
   opacity: 0;
   transition:

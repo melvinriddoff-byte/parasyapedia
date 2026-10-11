@@ -41,8 +41,11 @@
 .nav-links {
   display: flex;
   gap: clamp(14px, 2.2vw, 34px);
-  font-weight: 500;
+  font-family: var(--f-pixel);
+  font-weight: 400;
   font-size: 0.95rem;
+  /* Geist Pixel has one weight, so bold comes from a stroke in the text colour */
+  -webkit-text-stroke: 0.05em currentColor;
 }
 
 .nav-links a {

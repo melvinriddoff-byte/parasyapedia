@@ -308,7 +308,7 @@ Colours are CSS variables in `src/styles/tokens.css`.
 | `--saffron` | `#FFB224` | Sun (shapes only, no text on the page background) |
 | `--sand` | `#D9D2C5` | Stone |
 
-Fonts (loaded from Google Fonts in `index.html`): **Outfit** (the closest match to the logo wordmark) for headlines and body, **Instrument Serif Italic** for the single soft line in a layout, **Anek Malayalam** for Malayalam text.
+Fonts (loaded from Google Fonts in `index.html`): **Outfit** (the closest match to the logo wordmark) for headlines and body, **Geist Pixel** (self-hosted from `public/fonts`) for the accent lines, **Anek Malayalam** for Malayalam text.
 
 Brand rules followed in the code: flat colour and bold shapes (no gradients or glows), one headline per section, one four-point star as the recurring "spark", and sections that rotate Midnight, Parchment, Saffron, Ember and Sand. Section background classes are `s-dark`, `s-light`, `s-saffron`, `s-ember`, `s-sand` (`src/styles/layout.css`).
 

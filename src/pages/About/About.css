@@ -10,8 +10,8 @@
 }
 
 .mission {
-  font-family: var(--f-serif);
-  font-style: italic;
+  font-family: var(--f-pixel);
+  font-style: normal;
   font-size: clamp(1.5rem, 3vw, 2.6rem);
   line-height: 1.15;
   max-width: 22em;

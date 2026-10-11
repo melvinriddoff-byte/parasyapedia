@@ -11,7 +11,7 @@
 
   --f-head: 'Outfit', system-ui, 'Helvetica Neue', Arial, sans-serif;
   --f-body: 'Outfit', system-ui, -apple-system, 'Segoe UI', Roboto, Arial, sans-serif;
-  --f-serif: 'Instrument Serif', Georgia, 'Times New Roman', serif;
+  --f-pixel: 'Geist Pixel', ui-monospace, 'SF Mono', Menlo, monospace;
   --f-ml: 'Anek Malayalam', 'Noto Sans Malayalam', system-ui, sans-serif;
 
   --pad: clamp(20px, 5vw, 72px);

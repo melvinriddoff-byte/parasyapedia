@@ -23,8 +23,8 @@
 
 .tcard .qm2 {
   display: block;
-  font-family: var(--f-serif);
-  font-style: italic;
+  font-family: var(--f-pixel);
+  font-style: normal;
   font-size: 4.4rem;
   line-height: 0.6;
   height: 0.5em;

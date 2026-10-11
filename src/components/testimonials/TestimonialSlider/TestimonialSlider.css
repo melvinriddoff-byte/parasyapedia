@@ -48,8 +48,8 @@
   position: absolute;
   left: -0.1em;
   top: -0.55em;
-  font-family: var(--f-serif);
-  font-style: italic;
+  font-family: var(--f-pixel);
+  font-style: normal;
   font-size: clamp(7rem, 16vw, 14rem);
   line-height: 1;
   opacity: 0.22;
@@ -59,8 +59,8 @@
 .slide blockquote {
   margin: 0;
   position: relative;
-  font-family: var(--f-serif);
-  font-style: italic;
+  font-family: var(--f-pixel);
+  font-style: normal;
   font-size: clamp(1.7rem, 4vw, 3.4rem);
   line-height: 1.12;
   letter-spacing: -0.015em;
