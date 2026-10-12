@@ -33,9 +33,7 @@
   padding: clamp(18px, 2.2vw, 28px) clamp(20px, 2.6vw, 34px);
   border-radius: clamp(18px, 2.4vw, 30px);
   background: var(--sand);
-  transition:
-    background 0.4s,
-    transform 0.5s var(--ease);
+  transition: background 0.4s;
 }
 
 .svc a:nth-child(2) {
@@ -49,7 +47,6 @@
 .svc a:hover,
 .svc a.is-hover {
   background: var(--ember);
-  transform: translateX(10px);
 }
 
 .svc h3 {
@@ -78,7 +75,8 @@
   transition: transform 0.5s var(--ease);
 }
 
-.svc a:hover svg {
+.svc a:hover svg,
+.svc a.is-hover svg {
   transform: rotate(-45deg);
 }
 
@@ -89,12 +87,5 @@
 
   .intro-left {
     align-self: start;
-  }
-}
-
-@media (max-width: 560px) {
-  .svc a:hover,
-.svc a.is-hover {
-    transform: none;
   }
 }

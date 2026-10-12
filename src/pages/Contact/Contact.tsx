@@ -1,6 +1,7 @@
 import { BriefForm } from '@/components/contact/BriefForm/BriefForm';
 import { Accordion } from '@/components/ui/Accordion/Accordion';
 import { Mascot } from '@/components/ui/Mascot/Mascot';
+import { InstagramIcon, MailIcon, PinIcon, WhatsAppIcon } from '@/components/ui/Icons/Icons';
 import { PageHeader } from '@/components/ui/PageHeader/PageHeader';
 import { TitleReveal } from '@/components/ui/TitleReveal/TitleReveal';
 import { instagramUrl, siteConfig, whatsappUrl } from '@/config/site';
@@ -30,26 +31,31 @@ export function Contact() {
               <li>
                 <small>Email</small>
                 <a className="mail" href={`mailto:${siteConfig.email}`}>
+                  <MailIcon />
                   {siteConfig.email}
                 </a>
               </li>
               {whatsappUrl && (
                 <li>
                   <small>WhatsApp</small>
-                  <a href={whatsappUrl} target="_blank" rel="noopener noreferrer">
-                    Message us
+                  <a href={whatsappUrl} target="_blank" rel="noopener noreferrer" aria-label={`WhatsApp ${siteConfig.phone}`}>
+                    <WhatsAppIcon />
+                    {siteConfig.phone}
                   </a>
                 </li>
               )}
               <li>
                 <small>Instagram</small>
                 <a href={instagramUrl} target="_blank" rel="noopener noreferrer">
-                  @{siteConfig.instagram}
+                  <InstagramIcon />@{siteConfig.instagram}
                 </a>
               </li>
               <li>
                 <small>Studio</small>
-                <span className="place">{siteConfig.location}</span>
+                <span className="place">
+                  <PinIcon />
+                  {siteConfig.location}
+                </span>
               </li>
             </ul>
             <Mascot role="contact" pill="Say hi!" />

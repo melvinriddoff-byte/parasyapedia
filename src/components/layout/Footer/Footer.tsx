@@ -1,6 +1,6 @@
 import { useRef } from 'react';
 import { Button } from '@/components/ui/Button/Button';
-import { ArrowIcon } from '@/components/ui/Icons/Icons';
+import { ArrowIcon, InstagramIcon, MailIcon, PinIcon, WhatsAppIcon } from '@/components/ui/Icons/Icons';
 import { Logo } from '@/components/ui/Logo/Logo';
 import { TransitionLink } from '@/components/ui/TransitionLink/TransitionLink';
 import { instagramUrl, siteConfig, whatsappUrl } from '@/config/site';
@@ -56,22 +56,29 @@ export function Footer() {
             <h4>Get in touch</h4>
             <ul>
               <li>
-                <a href={`mailto:${siteConfig.email}`}>{siteConfig.email}</a>
+                <a href={`mailto:${siteConfig.email}`}>
+                  <MailIcon />
+                  {siteConfig.email}
+                </a>
               </li>
               {whatsappUrl && (
                 <li>
-                  <a href={whatsappUrl} target="_blank" rel="noopener noreferrer">
-                    WhatsApp
+                  <a href={whatsappUrl} target="_blank" rel="noopener noreferrer" aria-label={`WhatsApp ${siteConfig.phone}`}>
+                    <WhatsAppIcon />
+                    {siteConfig.phone}
                   </a>
                 </li>
               )}
               <li>
                 <a href={instagramUrl} target="_blank" rel="noopener noreferrer">
-                  @{siteConfig.instagram}
+                  <InstagramIcon />@{siteConfig.instagram}
                 </a>
               </li>
             </ul>
-            <address>{siteConfig.location}</address>
+            <address>
+              <PinIcon />
+              {siteConfig.location}
+            </address>
           </div>
         </div>
 

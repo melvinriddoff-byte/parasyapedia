@@ -12,15 +12,18 @@ export interface SiteConfig {
   /** Instagram handle without the @. */
   instagram: string;
   location: string;
+  /** The number as shown on the site. Tapping it opens a WhatsApp chat with `whatsapp`. */
+  phone: string;
 }
 
 export const siteConfig: SiteConfig = {
   name: 'Parasya Pedia',
   tagline: 'Beyond the frame.',
-  email: 'hello@yourdomain.com',
-  whatsapp: '',
+  email: 'parasya.pedia@gmail.com',
+  whatsapp: '918891182030',
   instagram: 'parasya.pedia',
-  location: 'Kerala, India',
+  location: 'Thrissur, Kerala, India',
+  phone: '+91 8891182030',
 };
 
 export const instagramUrl = `https://instagram.com/${siteConfig.instagram}`;

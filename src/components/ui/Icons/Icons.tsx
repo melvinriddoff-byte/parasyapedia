@@ -64,3 +64,52 @@ export function CloseIcon({ className, ...rest }: IconProps) {
     </svg>
   );
 }
+
+/** Outline contact icons: thin strokes, no fill, drawn in the current text colour. */
+function OutlineIcon({ className, children, ...rest }: IconProps) {
+  return (
+    <svg
+      className={cx('icon', 'icon-outline', className)}
+      viewBox="0 0 24 24"
+      fill="none"
+      stroke="currentColor"
+      strokeWidth="1.7"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+      aria-hidden="true"
+      focusable="false"
+      {...rest}
+    >
+      {children}
+    </svg>
+  );
+}
+
+export const MailIcon = (props: IconProps) => (
+  <OutlineIcon {...props}>
+    <rect x="3" y="5" width="18" height="14" rx="2.5" />
+    <polyline points="3.5,7.5 12,13.5 20.5,7.5" />
+  </OutlineIcon>
+);
+
+export const InstagramIcon = (props: IconProps) => (
+  <OutlineIcon {...props}>
+    <rect x="3.5" y="3.5" width="17" height="17" rx="5" />
+    <circle cx="12" cy="12" r="4" />
+    <circle cx="17.3" cy="6.7" r="0.6" />
+  </OutlineIcon>
+);
+
+export const WhatsAppIcon = (props: IconProps) => (
+  <OutlineIcon {...props}>
+    <path d="M3.5 20.5l1.4-4.3A8.5 8.5 0 1 1 8.2 19.4L3.5 20.5z" />
+    <path d="M9.3 8.4c-.3.4-.4 1-.1 1.7a7.6 7.6 0 0 0 4.5 4.3c.7.2 1.3.1 1.7-.3l.5-.7-1.8-1-.8.6c-.9-.3-1.7-1.1-2-2l.6-.8-1-1.8-.8.1z" />
+  </OutlineIcon>
+);
+
+export const PinIcon = (props: IconProps) => (
+  <OutlineIcon {...props}>
+    <path d="M20 10c0 6.5-8 12-8 12s-8-5.5-8-12a8 8 0 0 1 16 0z" />
+    <circle cx="12" cy="10" r="3" />
+  </OutlineIcon>
+);

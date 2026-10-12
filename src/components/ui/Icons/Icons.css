@@ -9,3 +9,12 @@
   height: 1em;
   color: currentColor;
 }
+
+/* contact icons sit in front of the text, in black */
+.icon-outline {
+  display: inline-block;
+  flex: none;
+  width: 1.15em;
+  height: 1.15em;
+  color: var(--ink);
+}

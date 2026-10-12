@@ -30,11 +30,16 @@
   font-weight: 800;
   font-size: clamp(1.05rem, 1.8vw, 1.45rem);
   border-bottom: 3px solid var(--midnight);
-  display: inline-block;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5em;
   word-break: break-all;
 }
 
 .info .place {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5em;
   font-weight: 700;
 }
 
