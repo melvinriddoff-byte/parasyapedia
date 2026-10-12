@@ -78,3 +78,28 @@
   font-weight: 700;
   word-break: break-all;
 }
+
+/* phones held sideways: smaller links so the whole menu fits without scrolling */
+@media (max-height: 520px) {
+  .menu {
+    padding-top: calc(72px + var(--safe-t));
+    padding-bottom: calc(14px + var(--safe-b));
+  }
+
+  .m-links {
+    padding-block: 4px;
+  }
+
+  .menu a.m {
+    font-size: clamp(1.3rem, 8.5vh, 2.2rem);
+    line-height: 1.05;
+  }
+
+  .m-foot {
+    grid-template-columns: auto 1fr 1fr;
+    align-items: center;
+    gap: 14px;
+    padding-top: 10px;
+    font-size: 0.85rem;
+  }
+}
