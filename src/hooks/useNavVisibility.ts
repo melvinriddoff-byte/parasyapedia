@@ -11,10 +11,12 @@ export function useNavVisibility(): { solid: boolean; hidden: boolean } {
       const y = window.scrollY;
       const dy = y - lastY.current;
       lastY.current = y;
+      const jumped = Math.abs(dy) > 250; // e.g. scroll restored after the menu closes: not a swipe
       setState((prev) => {
         const solid = y > 60;
         let hidden = prev.hidden;
-        if (dy > 5 && y > 320) hidden = true;
+        if (jumped) hidden = false;
+        else if (dy > 5 && y > 320) hidden = true;
         else if (dy < -4 || y < 320) hidden = false;
         return prev.solid === solid && prev.hidden === hidden ? prev : { solid, hidden };
       });

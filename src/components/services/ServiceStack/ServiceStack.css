@@ -1,0 +1,182 @@
+/*
+ * The pile. Cards are centred in the stage; the transform is built from variables:
+ *   resting   a small jitter (--jx, --jy, --jr)
+ *   .open     a fan: x grows with the card's distance from the middle, y follows a shallow arc
+ */
+.sk {
+  --card-w: clamp(210px, 23vw, 290px);
+  --card-h: calc(var(--card-w) * 1.32);
+  /* gap between neighbouring cards in the fan, so the whole fan fits the container */
+  --step: min(calc(var(--card-w) * 0.62), calc((100cqw - var(--card-w) - 24px) / (var(--n) - 1)));
+  container-type: inline-size;
+  width: 100%;
+  padding-inline: var(--pad);
+  box-sizing: border-box;
+}
+
+.sk-stage {
+  position: relative;
+  width: 100%;
+  height: calc(var(--card-h) + 90px);
+}
+
+.sk-card {
+  --d: calc(var(--i) - (var(--n) - 1) / 2);
+  --tx: var(--jx);
+  --ty: var(--jy);
+  --r: var(--jr);
+  --s: 1;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  display: flex;
+  flex-direction: column;
+  width: var(--card-w);
+  height: var(--card-h);
+  margin: calc(var(--card-h) / -2) 0 0 calc(var(--card-w) / -2);
+  padding: 0;
+  overflow: hidden;
+  text-align: left;
+  color: var(--ink);
+  background: #fff;
+  border: 2px solid var(--ink);
+  border-radius: clamp(18px, 2vw, 26px);
+  box-shadow: 0 10px 0 rgba(15, 15, 14, 0.12);
+  z-index: calc(var(--i) + 1);
+  transform: translate(var(--tx), var(--ty)) rotate(var(--r)) scale(var(--s));
+  transition:
+    transform 0.75s cubic-bezier(0.34, 1.35, 0.5, 1),
+    box-shadow 0.4s;
+  cursor: pointer;
+  will-change: transform;
+}
+
+/* fanned out */
+.sk.open .sk-card {
+  --tx: calc(var(--d) * var(--step));
+  --ty: calc(var(--d) * var(--d) * 7px);
+  --r: calc(var(--d) * 3.4deg);
+}
+
+/* the card under the pointer lifts and straightens */
+.sk.open .sk-card:hover,
+.sk.open .sk-card:focus-visible {
+  --ty: -26px;
+  --r: 0deg;
+  --s: 1.06;
+  z-index: 40;
+  box-shadow: 0 18px 0 rgba(15, 15, 14, 0.14);
+  outline: none;
+}
+
+.sk-art {
+  position: relative;
+  display: block;
+  flex: 1 1;
+  min-height: 0;
+  overflow: hidden;
+  container-type: inline-size;
+}
+
+.sk-info {
+  display: grid;
+  gap: 4px;
+  padding: 12px 16px 14px;
+  background: #fff;
+}
+
+.sk-tag {
+  font-size: 0.66rem;
+  font-weight: 700;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  opacity: 0.6;
+}
+
+.sk-info strong {
+  font-family: var(--f-head);
+  font-weight: 800;
+  font-size: clamp(1rem, 1.35vw, 1.2rem);
+  letter-spacing: -0.02em;
+  line-height: 1.1;
+}
+
+.sk-foot {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+  margin-top: 6px;
+}
+
+.sk-time {
+  font-size: 0.8rem;
+  font-weight: 500;
+  opacity: 0.7;
+}
+
+/* the call to action starts as a round arrow button and widens to show its label on hover */
+.sk-cta {
+  display: inline-flex;
+  align-items: center;
+  justify-content: flex-end;
+  height: 34px;
+  min-width: 34px;
+  padding-inline: 0 9px;
+  border-radius: 999px;
+  background: var(--ink);
+  color: var(--parchment);
+  overflow: hidden;
+  transition:
+    background 0.3s,
+    color 0.3s;
+}
+
+.sk-cta svg {
+  flex: none;
+  width: 16px;
+  height: 16px;
+}
+
+.sk-cta-label {
+  max-width: 0;
+  padding-left: 0;
+  font-size: 0.78rem;
+  font-weight: 700;
+  white-space: nowrap;
+  opacity: 0;
+  transition:
+    max-width 0.5s cubic-bezier(0.34, 1.35, 0.5, 1),
+    padding 0.5s,
+    opacity 0.3s;
+}
+
+.sk-card:hover .sk-cta,
+.sk-card:focus-visible .sk-cta {
+  background: var(--ember);
+  color: var(--ink);
+}
+
+.sk.open .sk-card:hover .sk-cta-label,
+.sk.open .sk-card:focus-visible .sk-cta-label {
+  max-width: 8em;
+  padding-left: 12px;
+  opacity: 1;
+}
+
+@media (max-width: 700px) {
+  .sk {
+    --card-w: clamp(190px, 56vw, 240px);
+  }
+
+  .sk-stage {
+    height: calc(var(--card-h) + 70px);
+  }
+}
+
+/* reduced motion: still a pile and a fan, but no spring */
+@media (prefers-reduced-motion: reduce) {
+  .sk-card {
+    transition: none;
+  }
+}

@@ -73,7 +73,7 @@ export function Header() {
         </button>
       </header>
 
-      <MobileMenu open={menuOpen} pathname={pathname} />
+      <MobileMenu open={menuOpen} pathname={pathname} onClose={() => setMenuOpen(false)} />
     </>
   );
 }

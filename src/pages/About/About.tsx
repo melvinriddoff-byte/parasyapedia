@@ -1,12 +1,11 @@
 import { FlipCard } from '@/components/about/FlipCard/FlipCard';
+import { StackedBeliefs } from '@/components/about/StackedBeliefs/StackedBeliefs';
 import { Accordion, type AccordionItem } from '@/components/ui/Accordion/Accordion';
 import { CtaBand } from '@/components/ui/CtaBand/CtaBand';
 import { PageHeader } from '@/components/ui/PageHeader/PageHeader';
 import { ScrubText } from '@/components/ui/ScrubText/ScrubText';
-import { Shapes } from '@/components/ui/Shapes/Shapes';
 import { TitleReveal } from '@/components/ui/TitleReveal/TitleReveal';
 import { TransitionLink } from '@/components/ui/TransitionLink/TransitionLink';
-import { principles } from '@/data/principles';
 import { services } from '@/data/services';
 import { servicesLink } from '@/utils/links';
 import './About.css';
@@ -62,18 +61,7 @@ export function About() {
 
       <section className="sec s-soft">
         <div className="wrap">
-          <TitleReveal lines={['What we believe.']} className="h2" />
-          <div className="pr">
-            {principles.map((principle) => (
-              <article key={principle.title}>
-                <div className="ico" aria-hidden="true">
-                  <Shapes list={principle.icon} />
-                </div>
-                <h3>{principle.title}</h3>
-                <p>{principle.text}</p>
-              </article>
-            ))}
-          </div>
+          <StackedBeliefs />
         </div>
       </section>
 

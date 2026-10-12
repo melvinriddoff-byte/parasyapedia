@@ -60,10 +60,35 @@ parasya-pedia/
 ├── brand-assets/
 │   ├── logo1.png
 │   └── logo2.png
+├── G · Prompt to frame-html/
+│   ├── assets/
+│   │   └── 98a45539e2093f6e551105e703aa8347.png
+│   ├── vendor/
+│   │   ├── react-dom.js
+│   │   └── react.js
+│   ├── G-Prompt-to-frame.dc.html
+│   ├── README.md
+│   └── support.js
+├── Geist_Pixel/
+│   ├── GeistPixel-Regular-VariableFont_ELSH.ttf
+│   ├── OFL.txt
+│   └── README.txt
+├── I · Director viewfinder-html/
+│   ├── assets/
+│   │   └── 98a45539e2093f6e551105e703aa8347.png
+│   ├── vendor/
+│   │   ├── react-dom.js
+│   │   └── react.js
+│   ├── I-Director-viewfinder.dc.html
+│   ├── README.md
+│   └── support.js
 ├── public/
 │   ├── brand/
 │   │   ├── logo-mark.png
 │   │   └── logo-wordmark.png
+│   ├── fonts/
+│   │   ├── GeistPixel-OFL.txt
+│   │   └── GeistPixel-Square.woff2
 │   ├── mascots/
 │   │   ├── crt-directions.webp
 │   │   └── crt-reactions.webp
@@ -72,9 +97,12 @@ parasya-pedia/
 ├── src/
 │   ├── components/
 │   │   ├── about/
-│   │   │   └── FlipCard/
-│   │   │       ├── FlipCard.css
-│   │   │       └── FlipCard.tsx
+│   │   │   ├── FlipCard/
+│   │   │   │   ├── FlipCard.css
+│   │   │   │   └── FlipCard.tsx
+│   │   │   └── StackedBeliefs/
+│   │   │       ├── StackedBeliefs.css
+│   │   │       └── StackedBeliefs.tsx
 │   │   ├── contact/
 │   │   │   └── BriefForm/
 │   │   │       ├── BriefForm.css
@@ -111,13 +139,13 @@ parasya-pedia/
 │   │   │   ├── ServiceCard/
 │   │   │   │   ├── ServiceCard.css
 │   │   │   │   └── ServiceCard.tsx
-│   │   │   └── ServiceRow/
-│   │   │       ├── ServiceRow.css
-│   │   │       └── ServiceRow.tsx
+│   │   │   └── ServiceStack/
+│   │   │       ├── ServiceStack.css
+│   │   │       └── ServiceStack.tsx
 │   │   ├── testimonials/
-│   │   │   ├── TestimonialCard/
-│   │   │   │   ├── TestimonialCard.css
-│   │   │   │   └── TestimonialCard.tsx
+│   │   │   ├── TestimonialBook/
+│   │   │   │   ├── TestimonialBook.css
+│   │   │   │   └── TestimonialBook.tsx
 │   │   │   └── TestimonialSlider/
 │   │   │       ├── TestimonialSlider.css
 │   │   │       └── TestimonialSlider.tsx
@@ -189,7 +217,8 @@ parasya-pedia/
 │   │   ├── useNavVisibility.ts
 │   │   ├── usePointerMotion.ts
 │   │   ├── useReducedMotion.ts
-│   │   └── useSmoothScroll.ts
+│   │   ├── useSmoothScroll.ts
+│   │   └── useTouchHover.ts
 │   ├── pages/
 │   │   ├── About/
 │   │   │   ├── About.css
@@ -206,9 +235,17 @@ parasya-pedia/
 │   │   │   │   │   ├── FeaturedServices.css
 │   │   │   │   │   └── FeaturedServices.tsx
 │   │   │   │   ├── Hero/
+│   │   │   │   │   ├── PromptToFrame/
+│   │   │   │   │   │   ├── PromptToFrame.css
+│   │   │   │   │   │   ├── PromptToFrame.tsx
+│   │   │   │   │   │   └── tiles.ts
 │   │   │   │   │   ├── Hero.css
 │   │   │   │   │   └── Hero.tsx
 │   │   │   │   ├── Intro/
+│   │   │   │   │   ├── DirectorViewfinder/
+│   │   │   │   │   │   ├── DirectorViewfinder.css
+│   │   │   │   │   │   ├── DirectorViewfinder.tsx
+│   │   │   │   │   │   └── wave.ts
 │   │   │   │   │   ├── Intro.css
 │   │   │   │   │   └── Intro.tsx
 │   │   │   │   ├── TestimonialPreview/
@@ -229,6 +266,7 @@ parasya-pedia/
 │   ├── styles/
 │   │   ├── animations.css
 │   │   ├── base.css
+│   │   ├── fonts.css
 │   │   ├── layout.css
 │   │   └── tokens.css
 │   ├── types/

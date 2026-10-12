@@ -46,7 +46,8 @@
   background: var(--saffron);
 }
 
-.svc a:hover {
+.svc a:hover,
+.svc a.is-hover {
   background: var(--ember);
   transform: translateX(10px);
 }
@@ -92,7 +93,8 @@
 }
 
 @media (max-width: 560px) {
-  .svc a:hover {
+  .svc a:hover,
+.svc a.is-hover {
     transform: none;
   }
 }

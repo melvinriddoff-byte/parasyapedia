@@ -15,6 +15,7 @@
 }
 
 .card:hover .art,
+.card.is-hover .art,
 .card:focus-visible .art {
   transform: translateY(-10px) rotate(-1.2deg);
 }

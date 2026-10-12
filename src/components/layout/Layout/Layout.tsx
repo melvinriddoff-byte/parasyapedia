@@ -8,6 +8,7 @@ import { ScrollProgress } from '@/components/layout/ScrollProgress/ScrollProgres
 import { ProjectModal } from '@/components/services/ProjectModal/ProjectModal';
 import { findRoute } from '@/data/routes';
 import { useSmoothScroll } from '@/hooks/useSmoothScroll';
+import { useTouchHover } from '@/hooks/useTouchHover';
 import './Layout.css';
 
 /** Wraps every page: header, footer, page transition and the shared effects. */
@@ -15,6 +16,7 @@ export function Layout() {
   useSmoothScroll();
   const { pathname } = useLocation();
   const route = findRoute(pathname);
+  useTouchHover(pathname);
   const [loaded, setLoaded] = useState(false);
   const handleLoaded = useCallback(() => setLoaded(true), []);
 

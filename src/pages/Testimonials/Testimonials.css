@@ -6,29 +6,13 @@
   padding: 0 0 clamp(56px, 8vw, 110px);
 }
 
-.tgrid {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  grid-auto-rows: 1fr;
-  gap: clamp(16px, 2vw, 28px);
+.tbook-wrap {
   transition:
     opacity 0.22s,
     transform 0.22s;
 }
 
-.tgrid.fading {
+.tbook-wrap.fading {
   opacity: 0;
   transform: scale(0.985);
-}
-
-@media (max-width: 960px) {
-  .tgrid {
-    grid-template-columns: repeat(2, 1fr);
-  }
-}
-
-@media (max-width: 600px) {
-  .tgrid {
-    grid-template-columns: 1fr;
-  }
 }

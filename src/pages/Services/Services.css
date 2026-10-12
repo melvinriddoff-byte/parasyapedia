@@ -1,5 +1,5 @@
 .services-body {
-  padding-top: clamp(40px, 6vw, 80px);
+  padding-top: clamp(24px, 6vw, 80px);
 }
 
 .service-grid {

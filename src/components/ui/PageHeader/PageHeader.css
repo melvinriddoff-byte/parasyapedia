@@ -48,9 +48,23 @@
   color: var(--ink);
 }
 
+/* no pointer to follow on touch screens, so the art floats on its own */
+@media (hover: none) {
+  .deco {
+    animation: deco-float 5s ease-in-out infinite;
+  }
+}
+
+@keyframes deco-float {
+  50% {
+    transform: translateY(-10px);
+  }
+}
+
 @media (max-width: 900px) {
   .ph {
     padding-top: calc(110px + var(--safe-t));
+    padding-bottom: clamp(28px, 6vw, 48px);
   }
 
   .ph-grid {

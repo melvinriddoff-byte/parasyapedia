@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { TestimonialCard } from '@/components/testimonials/TestimonialCard/TestimonialCard';
+import { TestimonialBook } from '@/components/testimonials/TestimonialBook/TestimonialBook';
 import { TestimonialSlider } from '@/components/testimonials/TestimonialSlider/TestimonialSlider';
 import { CtaBand } from '@/components/ui/CtaBand/CtaBand';
 import { FilterBar } from '@/components/ui/FilterChips/FilterChips';
@@ -14,9 +14,7 @@ export function Testimonials() {
   const [filter, setFilter] = useState<TypeFilter>('all');
   const { shown, fading } = useFadeFilter<TypeFilter>(filter);
 
-  const visible = testimonials
-    .map((item, index) => ({ item, index }))
-    .filter(({ item }) => shown === 'all' || item.category === shown);
+  const visible = testimonials.filter((item) => shown === 'all' || item.category === shown);
 
   return (
     <>
@@ -42,10 +40,8 @@ export function Testimonials() {
             label="Filter by type"
             count={`Showing ${visible.length} of ${testimonials.length} testimonials`}
           />
-          <div className={cx('tgrid', fading && 'fading')}>
-            {visible.map(({ item, index }) => (
-              <TestimonialCard key={index} item={item} tone={index} />
-            ))}
+          <div className={cx('tbook-wrap', fading && 'fading')}>
+            <TestimonialBook key={shown} items={visible} />
           </div>
         </div>
       </section>

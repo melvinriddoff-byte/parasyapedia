@@ -1,0 +1,123 @@
+/* two columns: a sticky heading, and a stack of cards that pile up as you scroll */
+.sb {
+  display: grid;
+  grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.1fr);
+  gap: clamp(28px, 5vw, 80px);
+  align-items: start;
+}
+
+.sb-hero {
+  position: sticky;
+  top: 110px;
+}
+
+.sb-stack {
+  display: grid;
+  gap: clamp(20px, 3vw, 36px);
+  /* room so the last card can finish stacking before the section ends */
+  padding-bottom: clamp(40px, 14vh, 140px);
+}
+
+.sb-card {
+  --top: calc(110px + var(--i) * 22px);
+  --lift: 0px;
+  --scale: 1;
+  --rot: var(--tilt);
+  position: sticky;
+  top: var(--top);
+  display: grid;
+  gap: 12px;
+  align-content: start;
+  min-height: clamp(220px, 24vw, 300px);
+  padding: clamp(22px, 2.6vw, 36px);
+  border-radius: clamp(20px, 2.6vw, 32px);
+  box-shadow: 0 8px 0 rgba(15, 15, 14, 0.14);
+  transform: translateY(var(--lift)) rotate(var(--rot)) scale(var(--scale));
+  transition:
+    transform 0.6s cubic-bezier(0.34, 1.4, 0.5, 1),
+    box-shadow 0.4s;
+  will-change: transform;
+}
+
+/* lifts, straightens and springs (hover, keyboard focus, or the card being under a finger) */
+.sb-card:hover,
+.sb-card:focus-within,
+.sb-card.is-hover {
+  --lift: -10px;
+  --rot: 0deg;
+  --scale: 1.02;
+  box-shadow: 0 16px 0 rgba(15, 15, 14, 0.16);
+}
+
+.tone-ink {
+  background: var(--ink);
+  color: var(--parchment);
+}
+
+.tone-ember {
+  background: var(--ember);
+  color: var(--ink);
+}
+
+.tone-sand {
+  background: var(--sand);
+  color: var(--ink);
+}
+
+.sb-top {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 16px;
+}
+
+.sb-ico {
+  position: relative;
+  width: 64px;
+  height: 64px;
+  container-type: inline-size;
+}
+
+.sb-no {
+  font-family: var(--f-pixel);
+  font-size: clamp(1.4rem, 2.4vw, 2rem);
+  opacity: 0.55;
+}
+
+.sb-card h3 {
+  margin: 8px 0 0;
+  font-family: var(--f-head);
+  font-weight: 800;
+  font-size: clamp(1.4rem, 2.4vw, 2rem);
+  letter-spacing: -0.02em;
+  line-height: 1.1;
+}
+
+.sb-card p {
+  margin: 0;
+  max-width: 30em;
+  font-size: clamp(0.95rem, 1.2vw, 1.05rem);
+  line-height: 1.5;
+}
+
+@media (max-width: 900px) {
+  .sb {
+    grid-template-columns: 1fr;
+  }
+
+  /* on phones the heading scrolls normally and the cards stack under the header */
+  .sb-hero {
+    position: static;
+  }
+
+  .sb-card {
+    --top: calc(84px + var(--i) * 14px);
+    min-height: 200px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .sb-card {
+    transition: none;
+  }
+}
