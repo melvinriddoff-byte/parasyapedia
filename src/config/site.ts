@@ -19,7 +19,7 @@ export interface SiteConfig {
 export const siteConfig: SiteConfig = {
   name: 'Parasya Pedia',
   tagline: 'Beyond the frame.',
-  email: 'parasya.pedia@gmail.com',
+  email: 'parasyapedia.co@gmail.com',
   whatsapp: '918891182030',
   instagram: 'parasya.pedia',
   location: 'Thrissur, Kerala, India',

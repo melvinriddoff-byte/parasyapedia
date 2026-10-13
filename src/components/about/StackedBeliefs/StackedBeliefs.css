@@ -96,8 +96,9 @@
 .sb-card p {
   margin: 0;
   max-width: 30em;
-  font-size: clamp(0.95rem, 1.2vw, 1.05rem);
-  line-height: 1.5;
+  font-family: var(--f-pixel);
+  font-size: clamp(0.85rem, 1.1vw, 0.95rem);
+  line-height: 1.55;
 }
 
 @media (max-width: 900px) {
