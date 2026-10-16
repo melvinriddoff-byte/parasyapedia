@@ -22,8 +22,16 @@ form {
   font: 500 clamp(1.05rem, 1.6vw, 1.35rem) / 1.4 var(--f-body);
   color: var(--ink);
   border-radius: 0;
-  outline-offset: 6px;
   resize: vertical;
+}
+
+/* no yellow box around the fields; the underline thickens instead so you can still see where you are */
+.field input[type='text']:focus,
+.field input[type='text']:focus-visible,
+.field textarea:focus,
+.field textarea:focus-visible {
+  outline: none;
+  border-bottom-width: 5px;
 }
 
 .field input::placeholder,
