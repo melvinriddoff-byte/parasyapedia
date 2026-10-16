@@ -10,7 +10,7 @@
 
 .vf-in {
   --p: calc(100cqw / 448);
-  --vf-panel: #1c1a18;
+  --vf-panel: #1C1A18;
   position: relative;
   display: grid;
   gap: calc(var(--p) * 22);

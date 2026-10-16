@@ -4,8 +4,8 @@
  * units), so it scales on every screen.
  */
 .tb {
-  --paper: #fbf8f0;
-  --paper-edge: #e4ddcd;
+  --paper: #FBF8F0;
+  --paper-edge: #E4DDCD;
   display: grid;
   justify-items: center;
   gap: 22px;

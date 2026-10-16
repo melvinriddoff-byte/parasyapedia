@@ -1,5 +1,5 @@
 import { useSearchParams } from 'react-router-dom';
-import { ServiceCard } from '@/components/services/ServiceCard/ServiceCard';
+import { ServiceCardSwap } from '@/components/services/ServiceCardSwap/ServiceCardSwap';
 import { Mascot } from '@/components/ui/Mascot/Mascot';
 import { CtaBand } from '@/components/ui/CtaBand/CtaBand';
 import { FilterBar } from '@/components/ui/FilterChips/FilterChips';
@@ -25,7 +25,7 @@ export function Services() {
     <>
       <PageHeader
         title={['What we', 'offer.']}
-        lede="AI-generated brand films, ads and short-form content, from launch films to festive reels. Tap any service to see what is included."
+        lede="AI-generated brand films, ads and short-form content, from launch films to festive reels. Swap through the cards, then open one to see what is included."
         deco="services"
       />
 
@@ -41,10 +41,12 @@ export function Services() {
             count={`Showing ${visible.length} of ${offerings.length} services`}
           />
           </div>
-          <div className={cx('service-grid', fading && 'fading')}>
-            {visible.map(({ offering, index }) => (
-              <ServiceCard key={offering.id} offering={offering} index={index} />
-            ))}
+          <div className={cx('service-stage', fading && 'fading')}>
+            <ServiceCardSwap
+              key={shown}
+              items={visible.map(({ offering }) => offering)}
+              indices={visible.map(({ index }) => index)}
+            />
           </div>
         </div>
       </section>

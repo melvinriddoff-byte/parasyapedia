@@ -60,28 +60,6 @@ parasya-pedia/
 ├── brand-assets/
 │   ├── logo1.png
 │   └── logo2.png
-├── G · Prompt to frame-html/
-│   ├── assets/
-│   │   └── 98a45539e2093f6e551105e703aa8347.png
-│   ├── vendor/
-│   │   ├── react-dom.js
-│   │   └── react.js
-│   ├── G-Prompt-to-frame.dc.html
-│   ├── README.md
-│   └── support.js
-├── Geist_Pixel/
-│   ├── GeistPixel-Regular-VariableFont_ELSH.ttf
-│   ├── OFL.txt
-│   └── README.txt
-├── I · Director viewfinder-html/
-│   ├── assets/
-│   │   └── 98a45539e2093f6e551105e703aa8347.png
-│   ├── vendor/
-│   │   ├── react-dom.js
-│   │   └── react.js
-│   ├── I-Director-viewfinder.dc.html
-│   ├── README.md
-│   └── support.js
 ├── public/
 │   ├── brand/
 │   │   ├── logo-mark.png
@@ -89,6 +67,28 @@ parasya-pedia/
 │   ├── fonts/
 │   │   ├── GeistPixel-OFL.txt
 │   │   └── GeistPixel-Square.woff2
+│   ├── G · Prompt to frame-html/
+│   │   ├── assets/
+│   │   │   └── 98a45539e2093f6e551105e703aa8347.png
+│   │   ├── vendor/
+│   │   │   ├── react-dom.js
+│   │   │   └── react.js
+│   │   ├── G-Prompt-to-frame.dc.html
+│   │   ├── README.md
+│   │   └── support.js
+│   ├── Geist_Pixel/
+│   │   ├── GeistPixel-Regular-VariableFont_ELSH.ttf
+│   │   ├── OFL.txt
+│   │   └── README.txt
+│   ├── I · Director viewfinder-html/
+│   │   ├── assets/
+│   │   │   └── 98a45539e2093f6e551105e703aa8347.png
+│   │   ├── vendor/
+│   │   │   ├── react-dom.js
+│   │   │   └── react.js
+│   │   ├── I-Director-viewfinder.dc.html
+│   │   ├── README.md
+│   │   └── support.js
 │   ├── mascots/
 │   │   ├── crt-directions.webp
 │   │   └── crt-reactions.webp
@@ -133,12 +133,18 @@ parasya-pedia/
 │   │   │       ├── Toast.css
 │   │   │       └── Toast.tsx
 │   │   ├── services/
+│   │   │   ├── CardSwap/
+│   │   │   │   ├── CardSwap.css
+│   │   │   │   └── CardSwap.tsx
+│   │   │   ├── FlexCarousel/
+│   │   │   │   ├── FlexCarousel.css
+│   │   │   │   └── FlexCarousel.tsx
 │   │   │   ├── ProjectModal/
 │   │   │   │   ├── ProjectModal.css
 │   │   │   │   └── ProjectModal.tsx
-│   │   │   ├── ServiceCard/
-│   │   │   │   ├── ServiceCard.css
-│   │   │   │   └── ServiceCard.tsx
+│   │   │   ├── ServiceCardSwap/
+│   │   │   │   ├── ServiceCardSwap.css
+│   │   │   │   └── ServiceCardSwap.tsx
 │   │   │   └── ServiceStack/
 │   │   │       ├── ServiceStack.css
 │   │   │       └── ServiceStack.tsx
@@ -272,6 +278,7 @@ parasya-pedia/
 │   ├── types/
 │   │   └── index.ts
 │   ├── utils/
+│   │   ├── cardArt.ts
 │   │   ├── clipboard.ts
 │   │   ├── cx.ts
 │   │   ├── links.ts
@@ -341,6 +348,7 @@ Colours are CSS variables in `src/styles/tokens.css`.
 | Token | Hex | Role |
 |---|---|---|
 | `--parchment` | `#F6F2EA` | Page |
+| `--stone-soft` | `#E9E5DA` | Panels on the page |
 | `--midnight`, `--ink` | `#0F0F0E` | Text and dark background |
 | `--ember` | `#FF5826` | Brand (dark text on it passes at 6.1:1; on the page it is for shapes only) |
 | `--saffron` | `#FFB224` | Sun (shapes only, no text on the page background) |
