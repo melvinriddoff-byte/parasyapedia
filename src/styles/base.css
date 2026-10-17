@@ -152,7 +152,7 @@ html *,
 html a,
 html button,
 html [role='button'] {
-  cursor: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='28' height='28' viewBox='0 0 28 28'><path d='M4 2.5 4 21 8.7 16.6 11.9 24 15.2 22.6 12 15.3 18.5 15.3Z' fill='%23FFB224' stroke='%230F0F0E' stroke-width='1.6' stroke-linejoin='round'/></svg>") 4 2,
+  cursor: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='28' height='28' viewBox='0 0 28 28'><path d='M4 2.5 4 21 8.7 16.6 11.9 24 15.2 22.6 12 15.3 18.5 15.3Z' fill='%23FF5826' stroke='%230F0F0E' stroke-width='1.6' stroke-linejoin='round'/></svg>") 4 2,
     auto;
 }
 

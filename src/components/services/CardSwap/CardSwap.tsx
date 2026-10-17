@@ -39,14 +39,14 @@ const THEMES = {
   },
   // this site's colours: warm paper tiles, near-black text and shade
   brand: {
-    '--swap-tile': '#fbf8f0',
+    '--swap-tile': '#FBF8F0',
     '--swap-tile-edge': 'rgba(15, 15, 14, 0.14)',
     '--swap-tile-highlight': 'rgba(255, 255, 255, 1)',
     '--swap-shadow': '0 28px 44px -26px rgba(15, 15, 14, 0.55), 0 10px 20px -12px rgba(15, 15, 14, 0.3)',
     '--swap-media-edge': 'rgba(15, 15, 14, 0.08)',
-    '--swap-ink': '#0f0f0e',
+    '--swap-ink': '#0F0F0E',
     '--swap-badge': 'rgba(15, 15, 14, 0.06)',
-    '--swap-shade': '#0f0f0e'
+    '--swap-shade': '#0F0F0E'
   }
 };
 

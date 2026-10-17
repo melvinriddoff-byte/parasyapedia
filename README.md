@@ -347,12 +347,12 @@ Colours are CSS variables in `src/styles/tokens.css`.
 
 | Token | Hex | Role |
 |---|---|---|
-| `--parchment` | `#F6F2EA` | Page |
-| `--stone-soft` | `#E9E5DA` | Panels on the page |
-| `--midnight`, `--ink` | `#0F0F0E` | Text and dark background |
-| `--ember` | `#FF5826` | Brand (dark text on it passes at 6.1:1; on the page it is for shapes only) |
-| `--saffron` | `#FFB224` | Sun (shapes only, no text on the page background) |
-| `--sand` | `#D9D2C5` | Stone |
+| `--parchment` | `#F6F2EA` | Page (parchment) |
+| `--stone-soft` | `#E9E5DA` | Panels on the page (warm tint) |
+| `--sand` | `#D9D2C5` | Supporting fills  |
+| `--saffron` | `#FFB224` | Secondary fills |
+| `--ember` | `#FF5826` | Brand orange: buttons, fills, accent words |
+| `--midnight`, `--ink` | `#0F0F0E` | Text and dark backgrounds |
 
 Fonts (loaded from Google Fonts in `index.html`): **Outfit** (the closest match to the logo wordmark) for headlines and body, **Geist Pixel** (self-hosted from `public/fonts`) for the accent lines, **Anek Malayalam** for Malayalam text.
 

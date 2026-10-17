@@ -286,7 +286,7 @@
   z-index: 4;
   width: calc(var(--p) * 46);
   height: calc(var(--p) * 46);
-  color: var(--ember);
+  color: var(--saffron);
   animation: spin 14s linear infinite;
 }
 

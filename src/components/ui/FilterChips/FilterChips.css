@@ -54,7 +54,7 @@
 
 .s-light .chip-b:hover,
 .s-soft .chip-b:hover {
-  border-color: var(--ember);
+  border-color: var(--ink);
 }
 
 .s-light .chip-b[aria-pressed='true'],

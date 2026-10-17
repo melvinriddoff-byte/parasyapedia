@@ -35,7 +35,7 @@
 .fg a:not(.btn):hover {
   color: var(--ink);
   text-decoration: underline;
-  text-decoration-color: var(--ember);
+  text-decoration-color: var(--ink);
   text-underline-offset: 4px;
 }
 
@@ -97,7 +97,8 @@
 }
 
 .fb button:hover {
-  color: var(--ember);
+  text-decoration: underline;
+  text-underline-offset: 4px;
 }
 
 .fb button svg {

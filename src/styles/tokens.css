@@ -1,12 +1,12 @@
 /* Brand Identity 2026: colours, type families and spacing tokens. */
 :root {
-  --ember: #ff5826; /* Brand */
-  --saffron: #ffb224; /* Sun */
-  --midnight: #0f0f0e; /* Text, dark background */
-  --ink: #0f0f0e; /* Text */
-  --sand: #d9d2c5; /* Stone */
-  --parchment: #f6f2ea; /* Page */
-  --stone-soft: #e9e5da; /* panels on the page colour */
+  --ember: #FF5826; /* Orange: brand, buttons, fills */
+  --saffron: #FFB224; /* Saffron: secondary fills */
+  --midnight: #0F0F0E; /* Near-black: text, dark background */
+  --ink: #0F0F0E; /* Near-black: text */
+  --sand: #D9D2C5; /* Sand: supporting fills */
+  --parchment: #F6F2EA; /* Parchment: page */
+  --stone-soft: #E9E5DA; /* Panels on the page (warm tint) */
   --black: #000;
 
   --f-head: 'Outfit', system-ui, 'Helvetica Neue', Arial, sans-serif;
