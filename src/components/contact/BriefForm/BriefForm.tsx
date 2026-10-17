@@ -1,29 +1,32 @@
 import { useEffect, useRef, useState, type FormEvent } from 'react';
 import { useLocation } from 'react-router-dom';
 import { Button } from '@/components/ui/Button/Button';
-import { siteConfig, whatsappUrl } from '@/config/site';
-import { useToast } from '@/context/ToastContext';
+import { siteConfig } from '@/config/site';
 import type { BriefPrefill, WorkType } from '@/types';
-import { copyText } from '@/utils/clipboard';
+import { CloseIcon } from '@/components/ui/Icons/Icons';
+import { useBodyLock } from '@/hooks/useBodyLock';
+import { cx } from '@/utils/cx';
 import './BriefForm.css';
 
 type BriefType = WorkType | 'Not sure yet';
+type Status = 'idle' | 'sending' | 'sent' | 'failed';
 const TYPES: BriefType[] = ['Brand film', 'AI ad', 'Short-form content', 'Not sure yet'];
 
 /**
- * Contact form with no backend: it prepares the brief and lets the visitor send it
- * by email or WhatsApp (or copy it). Can be pre-filled through router state.
+ * Contact form. Submitting posts the details to the studio inbox through FormSubmit
+ * (no backend of our own). If that fails, the visitor falls back to email or copy.
+ * Can be pre-filled through router state.
  */
 export function BriefForm() {
   const location = useLocation();
-  const toast = useToast();
+  const closeRef = useRef<HTMLButtonElement>(null);
   const messageRef = useRef<HTMLTextAreaElement>(null);
   const [name, setName] = useState('');
   const [contact, setContact] = useState('');
   const [type, setType] = useState<BriefType>('Not sure yet');
   const [message, setMessage] = useState('');
   const [error, setError] = useState('');
-  const [brief, setBrief] = useState<string | null>(null);
+  const [status, setStatus] = useState<Status>('idle');
 
   // Pre-fill when arriving from a project modal ("Brief us on this").
   useEffect(() => {
@@ -32,7 +35,6 @@ export function BriefForm() {
     if (prefill.type) setType(prefill.type);
     if (prefill.message !== undefined) {
       setMessage(prefill.message);
-      setBrief(null);
       const timer = window.setTimeout(() => {
         const area = messageRef.current;
         if (!area) return;
@@ -43,8 +45,9 @@ export function BriefForm() {
     }
   }, [location.key, location.state]);
 
-  const onSubmit = (event: FormEvent) => {
+  const onSubmit = async (event: FormEvent) => {
     event.preventDefault();
+    if (status === 'sending') return;
     if (!name.trim()) {
       setError('Add your name so we know who to reply to.');
       return;
@@ -54,44 +57,55 @@ export function BriefForm() {
       return;
     }
     setError('');
-    setBrief(
-      `Hi ${siteConfig.name},\n\nI am ${name.trim()}.\nProject type: ${type}\n\n${
-        message.trim() || '(No brief yet. Let us talk.)'
-      }\n\nReach me on: ${contact.trim()}`,
-    );
+    setStatus('sending');
+    try {
+      const response = await fetch(`https://formsubmit.co/ajax/${siteConfig.email}`, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json', Accept: 'application/json' },
+        body: JSON.stringify({
+          _subject: `New project enquiry: ${type} from ${name.trim()}`,
+          _template: 'table',
+          _captcha: 'false',
+          Name: name.trim(),
+          Contact: contact.trim(),
+          'Project type': type,
+          Idea: message.trim() || '(No brief yet)',
+        }),
+      });
+      const result = (await response.json()) as { success?: boolean | string };
+      const ok = response.ok && String(result.success) === 'true';
+      setStatus(ok ? 'sent' : 'failed');
+      if (ok) {
+        setName('');
+        setContact('');
+        setMessage('');
+        setType('Not sure yet');
+      }
+    } catch {
+      setStatus('failed');
+    }
   };
 
-  const copyBrief = async () => {
-    const ok = await copyText(brief ?? '');
-    toast(ok ? 'Brief copied' : 'Could not copy. Use the email button.');
+  const open = status !== 'idle';
+  const closePopup = () => {
+    if (status !== 'sending') setStatus('idle');
   };
 
-  if (brief !== null) {
-    const mailto = `mailto:${siteConfig.email}?subject=${encodeURIComponent(
-      `New project: ${type}`,
-    )}&body=${encodeURIComponent(brief)}`;
+  useBodyLock(open);
 
-    return (
-      <div className="result" aria-live="polite">
-        <h3>Your brief is ready.</h3>
-        <p>Choose how to send it to us.</p>
-        <div className="result-actions">
-          <Button href={mailto}>Send by email</Button>
-          {whatsappUrl && (
-            <Button href={`${whatsappUrl}?text=${encodeURIComponent(brief)}`} variant="line">
-              Send on WhatsApp
-            </Button>
-          )}
-          <Button variant="line" onClick={copyBrief}>
-            Copy brief
-          </Button>
-          <Button variant="line" onClick={() => setBrief(null)}>
-            Edit brief
-          </Button>
-        </div>
-      </div>
-    );
-  }
+  useEffect(() => {
+    if (!open) return;
+    const timer = window.setTimeout(() => closeRef.current?.focus(), 60);
+    const onKey = (event: KeyboardEvent) => {
+      if (event.key === 'Escape') closePopup();
+    };
+    window.addEventListener('keydown', onKey);
+    return () => {
+      window.clearTimeout(timer);
+      window.removeEventListener('keydown', onKey);
+    };
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [open, status]);
 
   return (
     <form onSubmit={onSubmit} noValidate>
@@ -152,8 +166,49 @@ export function BriefForm() {
       </p>
       <div>
         <Button type="submit" variant="dark">
-          Prepare my brief
+          Send
         </Button>
+      </div>
+      <div
+        className={cx('bf-modal', open && 'open')}
+        role="dialog"
+        aria-modal="true"
+        aria-labelledby="bf-popup-title"
+        aria-hidden={!open}
+        onClick={(event) => {
+          if (event.target === event.currentTarget) closePopup();
+        }}
+      >
+        <div className="bf-dialog" aria-live="polite">
+          {status !== 'sending' && (
+            <button
+              type="button"
+              className="bf-close"
+              ref={closeRef}
+              aria-label="Close"
+              onClick={closePopup}
+            >
+              <CloseIcon />
+            </button>
+          )}
+          <span className="spaced">
+            {status === 'sent' ? 'Sent' : status === 'failed' ? 'Not sent' : 'Sending'}
+          </span>
+          <h3 id="bf-popup-title">
+            {status === 'sent'
+              ? 'Thank you. Your brief is in.'
+              : status === 'failed'
+                ? 'That did not go through.'
+                : 'Sending your brief…'}
+          </h3>
+          <p>
+            {status === 'sent'
+              ? 'It has reached our inbox. We will reply on the contact you gave us.'
+              : status === 'failed'
+                ? `Please try again, or write to us at ${siteConfig.email}.`
+                : 'Hold on a moment.'}
+          </p>
+        </div>
       </div>
     </form>
   );

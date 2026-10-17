@@ -5,7 +5,7 @@
 export interface SiteConfig {
   name: string;
   tagline: string;
-  /** Studio email. The contact form builds a mailto: link to this address. */
+  /** Studio email. The contact form sends enquiries to this address (via FormSubmit). */
   email: string;
   /** Digits only, with country code, e.g. "919XXXXXXXXX". Leave empty to hide WhatsApp. */
   whatsapp: string;
