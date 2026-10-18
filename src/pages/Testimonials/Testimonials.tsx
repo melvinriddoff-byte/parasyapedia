@@ -1,21 +1,15 @@
-import { useState } from 'react';
-import { TestimonialBook } from '@/components/testimonials/TestimonialBook/TestimonialBook';
 import { TestimonialSlider } from '@/components/testimonials/TestimonialSlider/TestimonialSlider';
 import { CtaBand } from '@/components/ui/CtaBand/CtaBand';
-import { FilterBar } from '@/components/ui/FilterChips/FilterChips';
 import { PageHeader } from '@/components/ui/PageHeader/PageHeader';
-import { typeFilterOptions, type TypeFilter } from '@/data/filters';
-import { testimonials } from '@/data/testimonials';
-import { useFadeFilter } from '@/hooks/useFadeFilter';
-import { cx } from '@/utils/cx';
+import { comingSoonSlides } from '@/data/testimonials';
 import './Testimonials.css';
 
+/**
+ * The slider shows "Coming soon" cards until real quotes are ready. The filter and
+ * TestimonialBook components (and the sample quotes in src/data/testimonials.ts) are kept
+ * for when the cards section is switched back on.
+ */
 export function Testimonials() {
-  const [filter, setFilter] = useState<TypeFilter>('all');
-  const { shown, fading } = useFadeFilter<TypeFilter>(filter);
-
-  const visible = testimonials.filter((item) => shown === 'all' || item.category === shown);
-
   return (
     <>
       <PageHeader
@@ -27,22 +21,7 @@ export function Testimonials() {
 
       <section className="testimonials-slider s-light">
         <div className="wrap">
-          <TestimonialSlider items={testimonials} />
-        </div>
-      </section>
-
-      <section className="sec s-light">
-        <div className="wrap">
-          <FilterBar
-            options={typeFilterOptions}
-            value={filter}
-            onChange={setFilter}
-            label="Filter by type"
-            count={`Showing ${visible.length} of ${testimonials.length} testimonials`}
-          />
-          <div className={cx('tbook-wrap', fading && 'fading')}>
-            <TestimonialBook key={shown} items={visible} />
-          </div>
+          <TestimonialSlider items={comingSoonSlides} />
         </div>
       </section>
 

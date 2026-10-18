@@ -3,10 +3,9 @@ import { Button } from '@/components/ui/Button/Button';
 import { PlayIcon } from '@/components/ui/Icons/Icons';
 import { Mascot } from '@/components/ui/Mascot/Mascot';
 import { useShrinkToFit } from '@/hooks/useFitText';
-import { PromptToFrame } from './PromptToFrame/PromptToFrame';
 import './Hero.css';
 
-/** Opening screen: headline on the left, the animated prompt-to-frame panel on the right (the panel itself stays still). */
+/** Opening screen: headline on the left over the hero image (public/hero-bg.webp, from brand-assets/img2.png), with the mascot on the right. */
 export function Hero() {
   const headingRef = useRef<HTMLHeadingElement>(null);
   const copyRef = useRef<HTMLDivElement>(null);
@@ -52,7 +51,6 @@ export function Hero() {
 
         <div className="film-wrap hero-fade">
           <div className="film">
-            <PromptToFrame />
             <Mascot role="hero" pill="Roll camera!" />
           </div>
         </div>

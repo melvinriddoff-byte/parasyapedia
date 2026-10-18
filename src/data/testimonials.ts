@@ -56,3 +56,16 @@ export const testimonials: Testimonial[] = [
     category: 'Short-form content',
   },
 ];
+
+/**
+ * Slider cards for now: one "Coming soon" card per testimonial. Swap `comingSoonSlides` for
+ * `testimonials` in the pages when real quotes are ready.
+ */
+export const comingSoonSlides: Testimonial[] = testimonials.map(() => ({
+  quote: 'Coming soon',
+  name: '',
+  role: '',
+  brand: '',
+  place: '',
+  category: 'Brand film',
+}));
