@@ -1,0 +1,89 @@
+.make-list {
+  list-style: none;
+  margin: clamp(32px, 5vw, 64px) 0 0;
+  padding: 0;
+  border-bottom: 2px solid var(--ink);
+}
+
+.make-list > li {
+  border-top: 2px solid var(--ink);
+}
+
+.make-list a {
+  display: grid;
+  grid-template-columns: 1fr 1.1fr 1fr auto;
+  gap: 12px clamp(20px, 3vw, 48px);
+  align-items: start;
+  padding-block: clamp(22px, 3vw, 40px);
+}
+
+.make-list h3 {
+  font-family: var(--f-head);
+  font-weight: 800;
+  font-size: clamp(1.5rem, 2.8vw, 2.4rem);
+  line-height: 1.05;
+  letter-spacing: -0.03em;
+}
+
+.make-sum {
+  max-width: 34ch;
+  line-height: 1.5;
+}
+
+.make-del {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  gap: 6px;
+  font-weight: 500;
+}
+
+.make-del li::before {
+  content: '';
+  display: inline-block;
+  width: 0.5em;
+  height: 2px;
+  margin-right: 0.6em;
+  vertical-align: middle;
+  background: currentColor;
+}
+
+.make-list a > svg {
+  width: 48px;
+  height: 48px;
+  padding: 12px;
+  border-radius: 50%;
+  background: var(--midnight);
+  color: var(--parchment);
+  transition:
+    transform 0.25s var(--ease),
+    background 0.2s var(--ease);
+}
+
+.make-list a:hover > svg,
+.make-list a:focus-visible > svg {
+  transform: rotate(-45deg);
+  background: var(--ember);
+  color: var(--ink);
+}
+
+@media (max-width: 900px) {
+  .make-list a {
+    grid-template-columns: 1fr auto;
+  }
+
+  .make-list h3 {
+    grid-column: 1;
+  }
+
+  .make-list a > svg {
+    grid-row: 1;
+    grid-column: 2;
+  }
+
+  .make-sum,
+  .make-del {
+    grid-column: 1 / -1;
+  }
+}

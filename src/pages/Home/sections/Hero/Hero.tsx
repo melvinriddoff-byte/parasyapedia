@@ -1,11 +1,12 @@
 import { useRef, type CSSProperties } from 'react';
 import { Button } from '@/components/ui/Button/Button';
-import { PlayIcon } from '@/components/ui/Icons/Icons';
+import { ArrowIcon } from '@/components/ui/Icons/Icons';
 import { Mascot } from '@/components/ui/Mascot/Mascot';
+import { TransitionLink } from '@/components/ui/TransitionLink/TransitionLink';
 import { useShrinkToFit } from '@/hooks/useFitText';
 import './Hero.css';
 
-/** Opening screen: headline on the left over the hero image (public/hero-bg.webp, from brand-assets/img2.png), with the mascot on the right. */
+/** Opening screen: headline and the brief CTA on the left, the prompt-to-frame hero image (public/hero-bg.webp) on the right with the mascot. */
 export function Hero() {
   const headingRef = useRef<HTMLHeadingElement>(null);
   const copyRef = useRef<HTMLDivElement>(null);
@@ -34,19 +35,21 @@ export function Hero() {
           </h1>
 
           <p className="lede hero-fade">
-            We make AI-generated brand films, ads and social content for products and brands. Cinematic
-            video, imagery and sound. Made with AI, directed by humans.
+            AI-generated brand films, ads and short-form content for your product. Directed by people in
+            Thrissur, Kerala, and checked against your real pack, colours and logo before you see a frame.
           </p>
 
           <div className="cta-row hero-fade">
-            <Button to="/services">
-              <PlayIcon />
-              See our services
-            </Button>
-            <Button to="/contact" variant="line">
-              Start a project
-            </Button>
+            <Button to="/contact">Send a brief</Button>
+            <TransitionLink className="hero-link" to="/services">
+              See what we make
+              <ArrowIcon />
+            </TransitionLink>
           </div>
+
+          <p className="hero-langs hero-fade">
+            Delivered in Malayalam, Hindi, Tamil, Arabic or English
+          </p>
         </div>
 
         <div className="film-wrap hero-fade">
@@ -55,6 +58,8 @@ export function Hero() {
           </div>
         </div>
       </div>
+
+      <p className="hero-caption hero-fade">Illustrated concept</p>
     </section>
   );
 }

@@ -163,3 +163,59 @@
     mask-composite: intersect;
   }
 }
+
+/* secondary action: a quiet text link so "Send a brief" is the only button */
+.hero-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.55em;
+  padding: 1em 0.4em;
+  font-weight: 700;
+  font-size: 0.95rem;
+  text-decoration: underline;
+  text-decoration-thickness: 2px;
+  text-underline-offset: 0.35em;
+  text-decoration-color: color-mix(in srgb, var(--ink) 30%, transparent);
+  transition: text-decoration-color 0.2s var(--ease);
+}
+
+.hero-link svg {
+  width: 1.1em;
+  height: 1.1em;
+  transition: transform 0.2s var(--ease);
+}
+
+.hero-link:hover {
+  text-decoration-color: var(--ember);
+}
+
+.hero-link:hover svg {
+  transform: translateX(3px);
+}
+
+.hero-langs {
+  margin-top: clamp(18px, 2.4vw, 28px);
+  font-size: 0.9rem;
+  font-weight: 500;
+  color: color-mix(in srgb, var(--ink) 70%, transparent);
+}
+
+/* the hero image is an illustrated concept, not client work */
+.hero-caption {
+  position: absolute;
+  right: var(--pad);
+  bottom: clamp(20px, 3vw, 36px);
+  z-index: 1;
+  font-size: 0.75rem;
+  font-weight: 500;
+  color: color-mix(in srgb, var(--ink) 62%, transparent);
+}
+
+@media (max-width: 900px) {
+  .hero-caption {
+    position: static;
+    align-self: flex-end;
+    margin-top: 8px;
+    padding-bottom: 16px;
+  }
+}

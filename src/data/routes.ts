@@ -4,6 +4,7 @@ export const ROUTES: RouteMeta[] = [
   { path: '/', label: 'Home', title: 'Parasya Pedia | AI-Generated Brand Films and Ads' },
   { path: '/about', label: 'About us', title: 'About us | Parasya Pedia' },
   { path: '/services', label: 'Services', title: 'Services | Parasya Pedia' },
+  { path: '/works', label: 'Works', title: 'Works | Parasya Pedia' },
   { path: '/testimonials', label: 'Testimonials', title: 'Testimonials | Parasya Pedia' },
   { path: '/contact', label: 'Contact', title: 'Contact | Parasya Pedia' },
 ];

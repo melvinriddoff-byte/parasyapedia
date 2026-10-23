@@ -9,6 +9,7 @@ import { Home } from '@/pages/Home/Home';
 import { NotFound } from '@/pages/NotFound/NotFound';
 import { Services } from '@/pages/Services/Services';
 import { Testimonials } from '@/pages/Testimonials/Testimonials';
+import { Works } from '@/pages/Works/Works';
 
 /**
  * Providers wrap the router tree:
@@ -28,6 +29,7 @@ export function App() {
                 <Route path="about" element={<About />} />
                 <Route path="services" element={<Services />} />
                 <Route path="products" element={<Navigate to="/services" replace />} />
+                <Route path="works" element={<Works />} />
                 <Route path="testimonials" element={<Testimonials />} />
                 <Route path="contact" element={<Contact />} />
                 <Route path="*" element={<NotFound />} />

@@ -1,21 +1,20 @@
 import { CtaBand } from '@/components/ui/CtaBand/CtaBand';
 import { ClientsStrip } from './sections/ClientsStrip/ClientsStrip';
-import { FeaturedServices } from './sections/FeaturedServices/FeaturedServices';
 import { Hero } from './sections/Hero/Hero';
-import { Intro } from './sections/Intro/Intro';
-import { TestimonialPreview } from './sections/TestimonialPreview/TestimonialPreview';
+import { Process } from './sections/Process/Process';
 import { Ticker } from './sections/Ticker/Ticker';
+import { WhatWeMake } from './sections/WhatWeMake/WhatWeMake';
 
+/** One job: get the visitor to send a brief. Testimonials return here once real, permissioned quotes exist. */
 export function Home() {
   return (
     <>
       <Hero />
       <Ticker />
-      <Intro />
-      <FeaturedServices />
+      <Process />
+      <WhatWeMake />
       <ClientsStrip />
-      <TestimonialPreview />
-      <CtaBand lines={['Need an AI ad', 'for your brand?']} />
+      <CtaBand lines={['Got a product?', 'Send a brief.']} label="Send a brief" direct />
     </>
   );
 }

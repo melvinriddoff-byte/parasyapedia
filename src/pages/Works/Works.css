@@ -1,0 +1,251 @@
+/* Works: heading left, intro bottom-right, then a three-across grid of cards. */
+.works {
+  padding: calc(150px + var(--safe-t)) 0 clamp(80px, 10vw, 140px);
+}
+
+.works-head {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: end;
+  justify-content: space-between;
+  gap: 20px 48px;
+}
+
+.works-title {
+  font-family: var(--f-head);
+  font-weight: 800;
+  font-size: clamp(2.6rem, 5.6vw, 5rem);
+  line-height: 0.98;
+  letter-spacing: -0.04em;
+}
+
+.works-head p {
+  max-width: 24em;
+  margin: 0;
+  padding-bottom: 0.4em;
+  line-height: 1.5;
+  color: color-mix(in srgb, var(--ink) 74%, transparent);
+}
+
+.works-grid {
+  list-style: none;
+  margin: clamp(44px, 6vw, 80px) 0 0;
+  padding: 0;
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: clamp(40px, 5vw, 64px) clamp(20px, 2.2vw, 32px);
+}
+
+/* cover */
+.work-cover {
+  position: relative;
+  aspect-ratio: 5 / 4;
+  border-radius: 16px;
+  overflow: hidden;
+  background: var(--midnight);
+}
+
+.work-cover img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.22s var(--ease-hover);
+}
+
+/* hover shade: fades in over the cover, under the play button */
+.work-cover::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  background: var(--midnight);
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.22s var(--ease);
+}
+
+/* the playing film shows its whole frame (reels are 9:16) over the cover */
+.work-cover video {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  background: var(--midnight);
+}
+
+.work-play {
+  position: absolute;
+  right: 14px;
+  bottom: 14px;
+  z-index: 2;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  min-width: 48px;
+  height: 48px;
+  border-radius: 999px;
+  font-weight: 700;
+  font-size: 0.8rem;
+  background: color-mix(in srgb, var(--midnight) 72%, transparent);
+  color: var(--parchment);
+  transition:
+    background-color 0.2s var(--ease),
+    color 0.2s var(--ease),
+    transform 0.2s var(--ease);
+}
+
+.work-play svg {
+  width: 16px;
+  height: 16px;
+  margin-left: 2px;
+}
+
+/* stop sits top-right so the video's own controls stay clear */
+.work-close {
+  top: 12px;
+  bottom: auto;
+  right: 12px;
+  min-width: 40px;
+  height: 40px;
+}
+
+.work-close svg {
+  margin-left: 0;
+}
+
+/* card hover, as on the reference: the cover pushes in to 1.05 and darkens to 30% */
+.works-grid {
+  --ease-hover: cubic-bezier(0.3, 1.15, 0.5, 1); /* ease-out with a slight settle */
+}
+
+@media (hover: hover) {
+  .work-card:not(.playing):hover .work-cover img {
+    transform: scale(1.05);
+  }
+
+  .work-card:not(.playing):hover .work-cover::after {
+    opacity: 0.3;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .work-card:hover .work-cover img {
+    transform: none;
+  }
+}
+
+.work-play:hover,
+.work-play:focus-visible {
+  background: var(--ember);
+  color: var(--ink);
+  transform: scale(1.06);
+}
+
+.work-play:active {
+  transform: scale(0.96);
+}
+
+/* text */
+.work-tags {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-top: 18px;
+}
+
+.work-n {
+  font-family: var(--f-pixel);
+  font-size: 0.9rem;
+  line-height: 1;
+}
+
+.work-tag {
+  padding: 0.3em 0.75em;
+  border: 1.5px solid var(--ink);
+  border-radius: 999px;
+  font-size: 0.75rem;
+  font-weight: 700;
+  line-height: 1.2;
+}
+
+.work-title {
+  margin-top: 14px;
+  font-family: var(--f-head);
+  font-weight: 700;
+  font-size: clamp(1.35rem, 1.9vw, 1.75rem);
+  line-height: 1.15;
+  letter-spacing: -0.025em;
+  text-wrap: balance;
+}
+
+.work-title a {
+  color: inherit;
+}
+
+.work-title a:hover,
+.work-title a:focus-visible {
+  text-decoration: underline;
+  text-decoration-thickness: 2px;
+  text-underline-offset: 0.18em;
+}
+
+.work-ig {
+  display: inline-block;
+  width: 0.6em;
+  height: 0.6em;
+  margin-left: 0.35em;
+  vertical-align: 0.12em;
+  opacity: 0.55;
+}
+
+.work-desc {
+  margin: 8px 0 0;
+  max-width: 30ch;
+  font-size: 0.95rem;
+  line-height: 1.45;
+  color: color-mix(in srgb, var(--ink) 70%, transparent);
+}
+
+.work-byline {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 8px;
+  margin: 18px 0 0;
+  font-size: 0.85rem;
+  color: color-mix(in srgb, var(--ink) 70%, transparent);
+}
+
+.work-byline b {
+  font-weight: 600;
+  color: var(--ink);
+}
+
+/* the brand's orange P mark, drawn the same way as the navbar and footer lockup */
+.work-avatar {
+  flex: none;
+  height: 24px;
+  aspect-ratio: 728 / 791;
+  background: var(--ember);
+  mask: url('/brand/logo-mark.png') center / contain no-repeat;
+  -webkit-mask: url('/brand/logo-mark.png') center / contain no-repeat;
+}
+
+@media (max-width: 860px) {
+  .works-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 640px) {
+  .works {
+    padding-top: calc(120px + var(--safe-t));
+  }
+
+  .works-grid {
+    grid-template-columns: 1fr;
+  }
+}
