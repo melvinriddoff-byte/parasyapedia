@@ -1,19 +1,17 @@
 import type { RouteMeta } from '@/types';
+import seo from './seo.json';
 
-export const ROUTES: RouteMeta[] = [
-  { path: '/', label: 'Home', title: 'Parasya Pedia | AI-Generated Brand Films and Ads' },
-  { path: '/about', label: 'About us', title: 'About us | Parasya Pedia' },
-  { path: '/services', label: 'Services', title: 'Services | Parasya Pedia' },
-  { path: '/works', label: 'Works', title: 'Works | Parasya Pedia' },
-  { path: '/testimonials', label: 'Testimonials', title: 'Testimonials | Parasya Pedia' },
-  { path: '/contact', label: 'Contact', title: 'Contact | Parasya Pedia' },
-];
+/**
+ * Pages, in navigation order, with the title and description search engines and link previews show.
+ * Edit them in seo.json: scripts/seo.mjs reads the same file at build time to write each page's
+ * static HTML, the sitemap and robots.txt.
+ */
+export const ROUTES: RouteMeta[] = seo.pages;
 
-export const NOT_FOUND: RouteMeta = {
-  path: '*',
-  label: 'Page not found',
-  title: 'Page not found | Parasya Pedia',
-};
+export const NOT_FOUND: RouteMeta = seo.notFound;
+
+export const SITE_URL = seo.siteUrl;
+export const OG_IMAGE = `${seo.siteUrl}${seo.ogImage}`;
 
 /** Finds the route metadata for a pathname (ignores trailing slashes). */
 export function findRoute(pathname: string): RouteMeta {

@@ -37,7 +37,7 @@ export interface StarShape {
 export type Shape = BoxShape | StarShape;
 
 /**
- * One finished piece on the Works page. Images and videos live in public/works/.
+ * One finished piece on the Works page. Images and videos live in public/films/.
  * Give it `src` to play the film on the page, `href` to open it on Instagram, or both.
  */
 export interface Work {
@@ -47,11 +47,11 @@ export interface Work {
   /** The brand it was made for. Only name clients who agreed to be named. */
   client: string;
   type: WorkType;
-  /** Video under public/, e.g. "/works/beyond-the-frame.mp4". */
+  /** Video under public/, e.g. "/films/every-bite.mp4". */
   src?: string;
   /** The post on Instagram; clicking the film opens it in a new tab. */
   href?: string;
-  /** Still shown before the video plays, e.g. "/works/beyond-the-frame.jpg". */
+  /** Still shown before the video plays, e.g. "/films/every-bite.jpg". */
   poster: string;
   aspect: '16:9' | '9:16' | '1:1' | '4:5';
   /** Running time in seconds, when known. */
@@ -106,6 +106,8 @@ export interface RouteMeta {
   path: string;
   label: string;
   title: string;
+  /** Meta description for search results and link previews, about 150 characters. */
+  description: string;
 }
 
 export type DecoKey = 'about' | 'services' | 'testimonials' | 'contact';

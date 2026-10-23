@@ -9,6 +9,7 @@ import { ProjectModal } from '@/components/services/ProjectModal/ProjectModal';
 import { findRoute } from '@/data/routes';
 import { useSmoothScroll } from '@/hooks/useSmoothScroll';
 import { useTouchHover } from '@/hooks/useTouchHover';
+import { applySeo } from '@/utils/seo';
 import './Layout.css';
 
 /** Wraps every page: header, footer, page transition and the shared effects. */
@@ -27,8 +28,8 @@ export function Layout() {
 
   // One place for page-level side effects on every route change.
   useEffect(() => {
-    document.title = route.title;
-  }, [route.title]);
+    applySeo(route);
+  }, [route]);
 
   useEffect(() => {
     window.scrollTo({ top: 0, left: 0, behavior: 'instant' });

@@ -4,18 +4,88 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
     <meta name="theme-color" content="#F6F2EA" />
+
+    <!-- SEO: the values for each page live in src/data/seo.json; scripts/seo.mjs writes them into each page's HTML at build time. -->
+    <title>Parasya Pedia | AI Brand Films, Ads and Reels from Kerala</title>
     <meta
       name="description"
-      content="Parasya Pedia makes AI-generated brand films, ads and social content for products and brands, with generative AI and human direction."
+      content="An AI production studio in Thrissur, Kerala. We make AI-generated brand films, ads and reels, directed by people and checked against your real product."
     />
+    <meta name="robots" content="index, follow" />
+    <link rel="canonical" href="https://parasyapedia.com/" />
+
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="Parasya Pedia" />
+    <meta property="og:locale" content="en_IN" />
+    <meta property="og:url" content="https://parasyapedia.com/" />
+    <meta property="og:title" content="Parasya Pedia | AI Brand Films, Ads and Reels from Kerala" />
+    <meta
+      property="og:description"
+      content="An AI production studio in Thrissur, Kerala. We make AI-generated brand films, ads and reels, directed by people and checked against your real product."
+    />
+    <meta property="og:image" content="https://parasyapedia.com/og-image.jpg" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:image:alt" content="A prompt card turning into a cinematic frame of a Kerala theyyam performer" />
+
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Parasya Pedia | AI Brand Films, Ads and Reels from Kerala" />
+    <meta
+      name="twitter:description"
+      content="An AI production studio in Thrissur, Kerala. We make AI-generated brand films, ads and reels, directed by people and checked against your real product."
+    />
+    <meta name="twitter:image" content="https://parasyapedia.com/og-image.jpg" />
+
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@graph": [
+          {
+            "@type": "ProfessionalService",
+            "@id": "https://parasyapedia.com/#studio",
+            "name": "Parasya Pedia",
+            "slogan": "Beyond the frame.",
+            "description": "AI production studio making AI-generated brand films, AI ads and AI short-form content, directed by people in Thrissur, Kerala.",
+            "url": "https://parasyapedia.com/",
+            "logo": "https://parasyapedia.com/brand/logo-mark.png",
+            "image": "https://parasyapedia.com/og-image.jpg",
+            "email": "parasyapedia.co@gmail.com",
+            "telephone": "+91 8891182030",
+            "address": {
+              "@type": "PostalAddress",
+              "addressLocality": "Thrissur",
+              "addressRegion": "Kerala",
+              "addressCountry": "IN"
+            },
+            "areaServed": ["IN", "AE", "SA", "QA", "KW", "OM", "BH"],
+            "knowsLanguage": ["ml", "hi", "ta", "ar", "en"],
+            "sameAs": ["https://www.instagram.com/parasya.pedia/"],
+            "makesOffer": [
+              { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "AI brand films" } },
+              { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "AI ads" } },
+              { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "AI short-form content" } }
+            ]
+          },
+          {
+            "@type": "WebSite",
+            "@id": "https://parasyapedia.com/#website",
+            "url": "https://parasyapedia.com/",
+            "name": "Parasya Pedia",
+            "publisher": { "@id": "https://parasyapedia.com/#studio" },
+            "inLanguage": "en-IN"
+          }
+        ]
+      }
+    </script>
+
     <link rel="icon" type="image/png" href="/favicon.png" />
+    <link rel="apple-touch-icon" href="/favicon.png" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
       href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800&family=Anek+Malayalam:wght@400;700&display=swap"
       rel="stylesheet"
     />
-    <title>Parasya Pedia | AI-Generated Brand Films and Ads</title>
   </head>
   <body>
     <div id="root"></div>

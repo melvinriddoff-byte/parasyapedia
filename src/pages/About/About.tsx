@@ -70,7 +70,7 @@ export function About() {
           <div className="sticky">
             <TitleReveal lines={['What we', 'make.']} className="h2" />
           </div>
-          <Accordion items={serviceItems} />
+          <Accordion items={serviceItems} defaultOpen={null} />
         </div>
       </section>
 

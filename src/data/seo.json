@@ -1,0 +1,49 @@
+{
+  "siteUrl": "https://parasyapedia.com",
+  "siteName": "Parasya Pedia",
+  "ogImage": "/og-image.jpg",
+  "pages": [
+    {
+      "path": "/",
+      "label": "Home",
+      "title": "Parasya Pedia | AI Brand Films, Ads and Reels from Kerala",
+      "description": "An AI production studio in Thrissur, Kerala. We make AI-generated brand films, ads and reels, directed by people and checked against your real product."
+    },
+    {
+      "path": "/about",
+      "label": "About us",
+      "title": "About Parasya Pedia | AI Production Studio in Thrissur",
+      "description": "Parasya Pedia is a human-directed AI production studio in Thrissur, Kerala, making brand films, ads and short-form content in five languages."
+    },
+    {
+      "path": "/services",
+      "label": "Services",
+      "title": "AI Brand Films, Ads and Reels | Services | Parasya Pedia",
+      "description": "AI brand films, AI ads and AI short-form content for food, jewellery, D2C, hospitality and more. See what each service includes, then brief us."
+    },
+    {
+      "path": "/works",
+      "label": "Works",
+      "title": "Works | AI Films and Reels by Parasya Pedia",
+      "description": "Watch AI-generated films, ads and reels made by Parasya Pedia, including work for Leem Bakery and Moxie Beauty, directed in Thrissur, Kerala."
+    },
+    {
+      "path": "/testimonials",
+      "label": "Testimonials",
+      "title": "Testimonials | Parasya Pedia",
+      "description": "What brands say about working with Parasya Pedia on their AI-generated films, ads and reels."
+    },
+    {
+      "path": "/contact",
+      "label": "Contact",
+      "title": "Contact | Send a Brief to Parasya Pedia",
+      "description": "Send Parasya Pedia a short brief for your AI brand film, ad or reel. Reach the studio in Thrissur, Kerala by email or WhatsApp."
+    }
+  ],
+  "notFound": {
+    "path": "*",
+    "label": "Page not found",
+    "title": "Page not found | Parasya Pedia",
+    "description": "This page does not exist. Head back to Parasya Pedia to see our AI brand films, ads and reels."
+  }
+}

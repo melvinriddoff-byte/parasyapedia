@@ -193,29 +193,3 @@
   transform: translateX(3px);
 }
 
-.hero-langs {
-  margin-top: clamp(18px, 2.4vw, 28px);
-  font-size: 0.9rem;
-  font-weight: 500;
-  color: color-mix(in srgb, var(--ink) 70%, transparent);
-}
-
-/* the hero image is an illustrated concept, not client work */
-.hero-caption {
-  position: absolute;
-  right: var(--pad);
-  bottom: clamp(20px, 3vw, 36px);
-  z-index: 1;
-  font-size: 0.75rem;
-  font-weight: 500;
-  color: color-mix(in srgb, var(--ink) 62%, transparent);
-}
-
-@media (max-width: 900px) {
-  .hero-caption {
-    position: static;
-    align-self: flex-end;
-    margin-top: 8px;
-    padding-bottom: 16px;
-  }
-}

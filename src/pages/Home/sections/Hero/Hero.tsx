@@ -46,10 +46,6 @@ export function Hero() {
               <ArrowIcon />
             </TransitionLink>
           </div>
-
-          <p className="hero-langs hero-fade">
-            Delivered in Malayalam, Hindi, Tamil, Arabic or English
-          </p>
         </div>
 
         <div className="film-wrap hero-fade">
@@ -58,8 +54,6 @@ export function Hero() {
           </div>
         </div>
       </div>
-
-      <p className="hero-caption hero-fade">Illustrated concept</p>
     </section>
   );
 }
